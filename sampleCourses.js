@@ -1,5 +1,5 @@
 /* sampleCourses.js */
-const sampleCourses = `[
+const sampleCourses = [
     {
         id: 1,
         courseName: "Calculus I",
@@ -63,23 +63,16 @@ const sampleCourses = `[
         department: "Computer Science",
         departmentId: "CPSC 120"
     },
-    {
-        id: 10,
-        courseName: "Principles of Sociology",
-        professor: "Dr. Marcus Grant",
-        department: "Sociology",
-        departmentId: "SOCY 110"
-    }
-];`
+]
 
-const template = `
+const template = 
 {
 "id": 0,
 "courseName": "",
 "professor": "",
 "department": "",
 "departmentId": "",
-},
-`
+};
+
 
 export default sampleCourses;

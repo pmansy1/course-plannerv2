@@ -1,16 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Course Planner</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Course Planner MVP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div data-page="home">Home</div>
+      <div data-page="planner">Planner</div>
+      <div data-page="explore">Explore Courses</div>
+    </nav>
 
-<h2>Courses</h2>
-<div class="courses-container"></div>
+    <section id="home" class="page">
+      <header>All Courses</header>
+      <h1>Say goodbye to 8ams and Friday classes</h1>
+      <button data-page="planner" class="button">Start Planning</button>
+    </section>
 
-</body>
-<script type = module src="app.js"></script>
+    <section id="planner" class="page">
+      <header>Planner</header>
+      <button>Add Classes</button>
+    </section>
+
+    <section id="explore" class="page">
+      <header>Explore Courses</header>
+      <div id="courses-container"></div>
+    </section>
+
+    <footer></footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
 </html>
