@@ -65,3 +65,47 @@ showPage('home');
 
 
 
+// -----  PLANNER  ------
+
+// Create a function to handle adding a course to the planner
+function addCourseToPlanner() {
+  const addCourseButton = document.getElementById('add-course-button');
+  const modal = document.getElementById('modal');
+  const form = document.getElementById('course-form');
+  const cancelButton = document.getElementById('cancel-button');
+  const confirmButton = document.getElementById('confirm-button');
+
+  // Show the modal when the "Add Classes" button is clicked
+  addCourseButton.addEventListener('click', () => {
+    modal.classList.add('active'); // Add the 'active' class to show the modal
+  });
+
+  // Hide the modal when the "Cancel" button is clicked
+  cancelButton.addEventListener('click', () => {
+    modal.classList.remove('active'); // Remove the 'active' class to hide the modal
+    form.reset(); // Reset the form fields
+  });
+
+  // Handle the "Add Course" button click
+  confirmButton.addEventListener('click', () => {
+    const courseName = document.getElementById('course-name').value;
+    const professor = document.getElementById('professor').value;
+    const department = document.getElementById('department').value;
+    const term = document.getElementById('term-select').value;
+
+    const newCourse = {
+      courseName,
+      professor,
+      department,
+      term,
+    };
+
+    courses.push(newCourse);
+    displayCourses(courses);
+
+    modal.classList.remove('active'); // Hide the modal after adding the course
+    form.reset(); // Reset the form fields
+  });
+}
+
+addCourseToPlanner();

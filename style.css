@@ -1,112 +1,184 @@
 /* ====== Palette ====== */
 :root {
-    --dark:   #474973;
-    --light:  #91A6FF;
-    --white:  #FFFFFF;
-    --radius: 0.5rem;
-    --gap:    1rem;
-  }
-  
-  /* ====== Global ====== */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Segoe UI', Roboto, sans-serif;
-    background: var(--white);
-    color: var(--dark);
-    line-height: 1.5;
-  }
-  
-  /* ====== Page wrapper ====== */
-  .page {
-    display: none;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 var(--gap);
-  }
-  .page.active {
-    display: block;
-  }
-  
-  /* ====== Nav Bar ====== */
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: var(--gap);
-    background: var(--dark);
-    padding: 1rem 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-  nav div {
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  nav div:hover,
-  nav div.active {
-    background: var(--light);
-    color: var(--dark);
-  }
-  
-  /* ====== Headers & Buttons ====== */
-  header,
-  h1 {
-    text-align: center;
-    margin-bottom: var(--gap);
-  }
-  .button,
-  button {
-    display: inline-block;
-    background: var(--light);
-    color: var(--dark);
-    border: none;
-    border-radius: var(--radius);
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .button:hover,
-  button:hover {
-    background: var(--dark);
-    color: var(--white);
-    transform: translateY(-2px);
-  }
-  
-  /* ====== Course Cards ====== */
-  #courses-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--gap);
-    margin-top: var(--gap);
-  }
-  .course-card {
-    background: var(--white);
-    border: 2px solid var(--light);
-    border-radius: var(--radius);
-    padding: var(--gap);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-  }
-  .course-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  .course-card h2 {
-    font-size: 1.1rem;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-  }
-  .course-card p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.25rem;
-  }
-  
+  --primary:   #3366FF;    /* richer solid blue */
+  --dark:      #1A1F3B;    /* deep navy for text/nav bg */
+  --bg:        #F7FAFF;    /* very light off-white */
+  --white:     #FFFFFF;
+  --radius:    0.5rem;
+  --gap:       1rem;
+}
+
+/* ====== Global Reset ====== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* ====== Nav Bar ====== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap);
+  background: var(--dark);
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+nav div {
+  color: var(--white);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+nav div:hover,
+nav div.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ====== Page Wrapper ====== */
+.page {
+  display: none;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 var(--gap);
+}
+.page.active {
+  display: block;
+}
+
+/* ====== Headers & Primary Buttons ====== */
+header,
+h1 {
+  text-align: center;
+  margin-bottom: var(--gap);
+  color: var(--dark);
+}
+button,
+.button {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+button:hover,
+.button:hover {
+  transform: translateY(-2px);
+  background: var(--dark);
+}
+
+/* ====== “Cancel” Button ====== */
+/* Just add class="cancel" to your cancel button */
+button.cancel {
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+button.cancel:hover {
+  background: #FF4C4C;  /* red on hover */
+  color: var(--white);
+}
+
+/* ====== Course Cards ====== */
+#courses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+.course-card {
+  background: var(--white);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: var(--gap);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.course-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.course-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+/* ====== Two-Column Detail Layout ====== */
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: var(--gap);
+}
+.detail-container .left,
+.detail-container .right {
+  background: var(--white);
+  padding: var(--gap);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.detail-container h2 {
+  margin-top: 0;
+  color: var(--dark);
+}
+.detail-container p {
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ====== Modal & Form ====== */
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0; /* top/left/right/bottom = 0 */
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding: var(--gap);
+}
+#modal.active {
+  display: flex;
+}
+#course-form {
+  background: var(--white);
+  width: 90vw;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--gap);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+#course-form input,
+#course-form select,
+#course-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: var(--gap);
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+}
+#course-form button {
+  width: auto;
+  margin-right: var(--gap);
+}
