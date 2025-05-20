@@ -68,12 +68,14 @@ showPage('home');
 // -----  PLANNER  ------
 
 // Create a function to handle adding a course to the planner
+let addedCourses = []; // Array to store added courses
 function addCourseToPlanner() {
   const addCourseButton = document.getElementById('add-course-button');
   const modal = document.getElementById('modal');
   const form = document.getElementById('course-form');
   const cancelButton = document.getElementById('cancel-button');
   const confirmButton = document.getElementById('confirm-button');
+  const plannerContainer = document.getElementById('my-classes-container');
 
   // Show the modal when the "Add Classes" button is clicked
   addCourseButton.addEventListener('click', () => {
@@ -85,6 +87,8 @@ function addCourseToPlanner() {
     modal.classList.remove('active'); // Remove the 'active' class to hide the modal
     form.reset(); // Reset the form fields
   });
+
+ 
 
   // Handle the "Add Course" button click
   confirmButton.addEventListener('click', () => {
@@ -100,12 +104,40 @@ function addCourseToPlanner() {
       term,
     };
 
-    courses.push(newCourse);
-    displayCourses(courses);
+    // Add the new course to the planner
+    const plannerContainer = document.getElementById('my-classes-container');
+
+    // Check if a container for the selected term exists
+    let termContainer = document.querySelector(`.term-container[data-term="${term}"]`);
+    if (!termContainer) {
+      // Create a new container for the term if it doesn't exist
+      termContainer = document.createElement('div');
+      termContainer.classList.add('term-container');
+      termContainer.setAttribute('data-term', term);
+      termContainer.innerHTML = `<h3>${term}</h3>`;
+      plannerContainer.appendChild(termContainer);
+    }
+
+    // Create the course card
+    const plannerCard = document.createElement('div');
+    plannerCard.classList.add('course-card');
+    plannerCard.innerHTML = `
+      <h2>${courseName}</h2>
+      <p><strong>Professor:</strong> ${professor}</p>
+      <p><strong>Department:</strong> ${department}</p>
+      <p><strong>Term:</strong> ${term}</p>
+    `;
+
+    // Append the course card to the term container
+    termContainer.appendChild(plannerCard);
+
+    // Add the new course to the addedCourses array
+    addedCourses.push(newCourse);
 
     modal.classList.remove('active'); // Hide the modal after adding the course
     form.reset(); // Reset the form fields
   });
 }
-
 addCourseToPlanner();
+
+``

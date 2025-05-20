@@ -81,12 +81,11 @@ button:hover,
 
 /* ====== “Cancel” Button ====== */
 /* Just add class="cancel" to your cancel button */
-button.cancel {
+button#cancel-button {
   background: transparent;
   color: var(--dark);
-  border: 1px solid var(--dark);
 }
-button.cancel:hover {
+button#cancel-button:hover {
   background: #FF4C4C;  /* red on hover */
   color: var(--white);
 }
@@ -181,4 +180,15 @@ button.cancel:hover {
 #course-form button {
   width: auto;
   margin-right: var(--gap);
+}
+
+
+/* ====== Semester Styles ====== */
+.term-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  margin-top: var(--gap);
+  border: 2px solid var(--primary);
+  padding: var(--gap);
 }

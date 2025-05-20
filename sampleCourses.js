@@ -1,5 +1,5 @@
 /* sampleCourses.js */
-const sampleCourses = [
+let sampleCourses = [
     {
         id: 1,
         courseName: "Calculus I",
