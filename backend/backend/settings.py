@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'courses_planner,' # Your app name here
+    'course_dive',  # Your app name here
 ]
 
 MIDDLEWARE = [
