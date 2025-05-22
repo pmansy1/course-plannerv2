@@ -22,7 +22,7 @@ showPage('home');
 
 
 // -----  DISPLAYING COURSE CARDS  ------
-import sampleCourses from './sampleCourses.js';
+import sampleCourses from '../../../sampleCourses.js';
 
 const coursesContainer = document.getElementById('courses-container');
 
