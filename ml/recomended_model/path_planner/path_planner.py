@@ -1,5 +1,5 @@
 import networkx as nx
-
+from recomended_model.user_profile import User_student
 class PathPlanner:
     def __init__(self):
         self.graph = nx.DiGraph()
