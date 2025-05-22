@@ -1,0 +1,6 @@
+course_id,course_name,instructor,credits,description
+CS101,Introduction to Programming,Dr. Allen,4,"Learn the basics of coding using Python and problem-solving techniques."
+MATH201,Linear Algebra,Dr. Baker,3,"Covers vectors matrices, eigenvalues, and applications in computing and engineering."
+PHYS150,General Physics I,Dr. Chen,4,"Fundamentals of mechanics, motion ,and energy with lab work included."
+ENG220,British Literature,Dr. Diaz,3,"A survey of major works in British literature from Chaucer to the 20th century."
+BIO110,Cell Biology,Dr. Evans,4,'Explores the structure and function of cells including molecular biology and genetics.'
