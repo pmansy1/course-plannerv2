@@ -144,7 +144,7 @@ button#cancel-button:hover {
 }
 
 /* ====== Modal & Form ====== */
-#modal {
+.modal {
   display: none;
   position: fixed;
   inset: 0; /* top/left/right/bottom = 0 */
@@ -154,10 +154,10 @@ button#cancel-button:hover {
   align-items: center;
   padding: var(--gap);
 }
-#modal.active {
+.modal.active {
   display: flex;
 }
-#course-form {
+#create-course-form {
   background: var(--white);
   width: 90vw;
   max-width: 700px;
@@ -167,9 +167,9 @@ button#cancel-button:hover {
   border-radius: var(--radius);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-#course-form input,
-#course-form select,
-#course-form textarea {
+#create-course-form  input,
+#create-course-form select,
+#create-course-form textarea {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: var(--gap);
@@ -177,10 +177,39 @@ button#cancel-button:hover {
   border: 1px solid #ccc;
   border-radius: var(--radius);
 }
-#course-form button {
+#create-course-form button {
   width: auto;
   margin-right: var(--gap);
 }
+
+
+
+
+#add-course-form {
+  background: var(--white);
+  width: 90vw;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--gap);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+#add-course-form  input,
+#add-course-form select,
+#add-course-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: var(--gap);
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+}
+#add-course-form button {
+  width: auto;
+  margin-right: var(--gap);
+}
+
 
 
 /* ====== Semester Styles ====== */
