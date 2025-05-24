@@ -113,6 +113,29 @@ function createCourseCard(course) {
   return plannerCard;
 }
 
+//TODO: Implement the edit functionality
+function initializeEditCourseButton() {
+  const editButtons = document.querySelectorAll('.edit-course-button');
+  editButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const courseId = button.dataset.courseId;
+      // Implement edit functionality here
+    });
+  });
+}
+
+//TODO: Implement the delete functionality
+function initializeDeleteCourseButton() {
+  const deleteButtons = document.querySelectorAll('.delete-course-button');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const courseId = button.dataset.courseId;
+      // Implement delete functionality here
+    });
+  });
+}
+
+
 function handleAddCourse() {
   const confirmButton = document.getElementById('confirm-button');
   const modal = document.getElementById('create-course-modal');

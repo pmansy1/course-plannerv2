@@ -76,6 +76,34 @@
             </div>
           </form>
         </div>
+
+        <div id="edit-course-modal" class="modal">
+          <form id="edit-course-form">
+            <label for="edit-course-name">Course Name</label>
+            <input
+              type="text"
+              id="edit-course-name"
+              name="courseName"
+              required
+            />
+
+            <label for="edit-course-term">Term</label>
+            <input type="text" id="edit-course-term" name="term" required />
+
+            <label for="edit-course-professor">Professor</label>
+            <input
+              type="text"
+              id="edit-course-professor"
+              name="professor"
+              required
+            />
+
+            <div class="modal-buttons">
+              <button type="submit" id="save-edit-btn">Save Changes</button>
+              <button type="button" id="cancel-edit-btn">Cancel</button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 

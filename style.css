@@ -221,3 +221,28 @@ button#cancel-button:hover {
   border: 2px solid var(--primary);
   padding: var(--gap);
 }
+
+#edit-course-form {
+  background: var(--white);
+  width: 90vw;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--gap);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+#edit-course-form input,
+#edit-course-form select,
+#edit-course-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: var(--gap);
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+}
+#edit-course-form button {
+  width: auto;
+  margin-right: var(--gap);
+}
