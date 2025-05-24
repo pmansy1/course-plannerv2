@@ -177,6 +177,8 @@ function initializeAddCourseModal() {
   const cancelButton = document.getElementById('cancel-btn');
   const submitButton = document.getElementById('submit-btn');
 
+  const addedCourses = []; // Array to track added courses
+
   // Populate the dropdown with courses
   function populateDropdown() {
     courseSelect.innerHTML = ''; // Clear existing options
@@ -194,6 +196,12 @@ function initializeAddCourseModal() {
       const option = document.createElement('option');
       option.value = course.id; // Use the course ID as the value
       option.textContent = `${course.courseName} (${course.term})`;
+
+      if (addedCourses.includes(course.id)) {
+        option.disabled = true;
+        option.textContent += ' (Already Added)';
+      }
+      
       courseSelect.appendChild(option);
     });
   }
@@ -230,6 +238,9 @@ function initializeAddCourseModal() {
     // Create and append the course card
     const plannerCard = createCourseCard(selectedCourse);
     termContainer.appendChild(plannerCard);
+
+    // Add the selected course ID to the addedCourses array
+    addedCourses.push(selectedCourse.id);
 
     // Close the modal and reset the form
     modal.classList.remove('active');
