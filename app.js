@@ -67,29 +67,7 @@ showPage('home');
 
 // -----  PLANNER  ------
 
-// Create a function to handle adding a course to the planner
-let addedCourses = []; // Array to store added courses
-
-function initializeAddCourseButton() {
-  const addCourseButton = document.getElementById('create-course-button');
-  const modal = document.getElementById('create-course-modal');
-
-  addCourseButton.addEventListener('click', () => {
-    modal.classList.add('active'); // Show the modal
-  });
-}
-
-function initializeCancelButton() {
-  const cancelButton = document.getElementById('cancel-button');
-  const modal = document.getElementById('create-course-modal');
-  const form = document.getElementById('create-course-form');
-
-  cancelButton.addEventListener('click', () => {
-    modal.classList.remove('active'); // Hide the modal
-    form.reset(); // Reset the form fields
-  });
-}
-
+// Create the planner container
 function createTermContainer(term, plannerContainer) {
   const termContainer = document.createElement('div');
   termContainer.classList.add('term-container');
@@ -99,6 +77,7 @@ function createTermContainer(term, plannerContainer) {
   return termContainer;
 }
 
+// Create a course card element
 function createCourseCard(course) {
   const plannerCard = document.createElement('div');
   plannerCard.classList.add('course-card');
@@ -113,79 +92,6 @@ function createCourseCard(course) {
   return plannerCard;
 }
 
-//TODO: Implement the edit functionality
-function initializeEditCourseButton() {
-  const editButtons = document.querySelectorAll('.edit-course-button');
-  editButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const courseId = button.dataset.courseId;
-      // Implement edit functionality here
-    });
-  });
-}
-
-//TODO: Implement the delete functionality
-function initializeDeleteCourseButton() {
-  const deleteButtons = document.querySelectorAll('.delete-course-button');
-  deleteButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const courseId = button.dataset.courseId;
-      // Implement delete functionality here
-    });
-  });
-}
-
-
-function handleAddCourse() {
-  const confirmButton = document.getElementById('confirm-button');
-  const modal = document.getElementById('create-course-modal');
-  const form = document.getElementById('create-course-form');
-  const plannerContainer = document.getElementById('my-classes-container');
-
-  confirmButton.addEventListener('click', () => {
-    event.preventDefault(); // Prevent form submission
-
-    const courseName = document.getElementById('course-name').value;
-    const professor = document.getElementById('professor').value;
-    const department = document.getElementById('department').value;
-    const term = document.getElementById('term-select').value;
-    const departmentId = document.getElementById('department-id').value;
-    const credits = document.getElementById('credits').value;
-
-    const newCourse = {
-      courseName,
-      professor,
-      department,
-      term,
-      departmentId,
-      credits
-    };
-
-    // Check if a container for the selected term exists
-    let termContainer = document.querySelector(`.term-container[data-term="${term}"]`);
-    if (!termContainer) {
-      termContainer = createTermContainer(term, plannerContainer);
-    }
-
-    // Create and append the course card
-    const plannerCard = createCourseCard(newCourse);
-    termContainer.appendChild(plannerCard);
-
-    // Add the new course to the addedCourses array
-    addedCourses.push(newCourse);
-
-    modal.classList.remove('active'); // Hide the modal
-    form.reset(); // Reset the form fields
-  });
-}
-
-function addCourseToPlanner() {
-  initializeAddCourseButton();
-  initializeCancelButton();
-  handleAddCourse();
-}
-
-addCourseToPlanner();
 
 
 // -----  ADD COURSE MODAL  ------
@@ -200,7 +106,7 @@ function initializeAddCourseModal() {
   const cancelButton = document.getElementById('cancel-btn');
   const submitButton = document.getElementById('submit-btn');
 
-  const addedCourses = []; // Array to track added courses
+  let addedCourses = []; // Array to track added courses
 
   // Populate the dropdown with courses
   function populateDropdown() {
@@ -278,3 +184,17 @@ function initializeAddCourseModal() {
 }
 
 initializeAddCourseModal();
+
+
+// ----- DELETE COURSE FUNCTIONALITY  ------
+
+//TODO: Implement the delete functionality
+function initializeDeleteCourseButton() {
+  const deleteButtons = document.querySelectorAll('.delete-course-button');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const courseId = button.dataset.courseId;
+      // Implement delete functionality here
+    });
+  });
+}
