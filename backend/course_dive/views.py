@@ -8,6 +8,9 @@ import ast
 from django.http import JsonResponse
 
 # Create your views here.
+def home(request):
+    return JsonResponse({"message": "Welcome to Course Dive!"})
+
 
 def recommend_courses(request):
     user_profile = request.user.userprofile
@@ -43,8 +46,8 @@ def get_available_courses(request):
     return JsonResponse(available_courses_list, safe=False)
 
 def get_all_courses(request):
-    courses = Course.objects.all().values('title', 'description', 'keywords')
-    return JsonResponse(list(courses), safe=False)
+    courses = Course.objects.all()
+    return render(request, 'course_dive/courses.html', {'courses': courses})
 
 def get_course_by_title(request, title):
     try:
@@ -89,3 +92,68 @@ def find_path(request):
     
     return JsonResponse(paths, safe=False)
 
+def save_course_recommendation(request):
+    if request.method == 'POST':
+        user = request.user
+        course_title = request.POST.get('course_title')
+        course = Course.objects.filter(title=course_title).first()
+
+        if not course:
+            return JsonResponse({'error': 'Course not found'}, status=404)
+
+        recommendation, created = CourseRecommendation.objects.get_or_create(
+            user=user,
+            course=course,
+            defaults={'reason': request.POST.get('reason', '')}
+        )
+
+        if not created:
+            recommendation.reason = request.POST.get('reason', '')
+            recommendation.save()
+
+        return JsonResponse({'message': 'Course recommendation saved successfully'})
+    
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
+
+
+def get_user_profile(request):
+    if request.user.is_authenticated:
+        user_profile = request.user.userprofile
+        profile_data = {
+            'first_name': user_profile.user.first_name,
+            'last_name': user_profile.user.last_name,
+            'email': user_profile.user.email,
+            'age': user_profile.age,
+            'major': user_profile.major,
+            'minor': user_profile.minor,
+            'year': user_profile.year,
+            'exp_grad_year': user_profile.exp_grad_year,
+            'credits_completed': user_profile.credits_completed,
+            'interests': user_profile.interests,
+        }
+        return JsonResponse(profile_data)
+    else:
+        return JsonResponse({'error': 'User not authenticated'}, status=401)
+
+def create_user_profile(request):
+    if request.method == 'POST':
+        user = request.user
+        if not user.is_authenticated:
+            return JsonResponse({'error': 'User not authenticated'}, status=401)
+
+        data = request.POST
+        user_profile, created = UserProfile.objects.get_or_create(user=user)
+
+        user_profile.age = data.get('age', user_profile.age)
+        user_profile.major = data.get('major', user_profile.major)
+        user_profile.minor = data.get('minor', user_profile.minor)
+        user_profile.year = data.get('year', user_profile.year)
+        user_profile.exp_grad_year = data.get('exp_grad_year', user_profile.exp_grad_year)
+        user_profile.credits_completed = data.get('credits_completed', user_profile.credits_completed)
+        user_profile.interests = data.get('interests', user_profile.interests)
+
+        user_profile.save()
+
+        return render(request, 'user_profile_created.html', {'profile': user_profile})
+    
+    return render(request, 'create_user_profile.html', {})

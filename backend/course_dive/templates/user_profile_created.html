@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Saved</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            margin: auto;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        p {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Profile Created Successfully!</h2>
+        <p><strong>Age:</strong> {{ profile.age }}</p>
+        <p><strong>Major:</strong> {{ profile.major }}</p>
+        <p><strong>Minor:</strong> {{ profile.minor }}</p>
+        <p><strong>Year:</strong> {{ profile.year }}</p>
+        <p><strong>Expected Graduation:</strong> {{ profile.exp_grad_year }}</p>
+        <p><strong>Credits Completed:</strong> {{ profile.credits_completed }}</p>
+        <p><strong>Interests:</strong> {{ profile.interests }}</p>
+    </div>
+</body>
+</html>

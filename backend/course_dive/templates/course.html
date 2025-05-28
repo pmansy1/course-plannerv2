@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .course {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+        .keywords {
+            color: #555;
+            font-size: 0.9em;
+        }
+        .level {
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Courses</h1>
+
+    {% if courses %}
+        {% for course in courses %}
+            <div class="course">
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.description }}</p>
+                <p class="keywords">Keywords: {{ course.keywords }}</p>
+                <p class="level">Level: {{ course.level }} | Credits: {{ course.credit_hours }}</p>
+                {% if course.get_prerequisites %}
+                    <p><strong>Prerequisites:</strong> {{ course.get_prerequisites|join:", " }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No courses found.</p>
+    {% endif %}
+</body>
+</html>
