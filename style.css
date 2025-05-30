@@ -1,15 +1,16 @@
 /* ====== Palette ====== */
 :root {
-  --primary:   #3366FF;    /* richer solid blue */
-  --dark:      #1A1F3B;    /* deep navy for text/nav bg */
-  --bg:        #F7FAFF;    /* very light off-white */
+  --primary:   #3366FF;
+  --dark:      #1A1F3B;
+  --bg:        #F7FAFF;
   --white:     #FFFFFF;
+  --red:       #FF4C4C;
   --radius:    0.5rem;
   --gap:       1rem;
 }
 
 /* ====== Global Reset ====== */
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -21,26 +22,34 @@ body {
   line-height: 1.6;
 }
 
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
 /* ====== Nav Bar ====== */
 nav {
   display: flex;
   justify-content: center;
   gap: var(--gap);
   background: var(--dark);
-  padding: 1rem 0;
+  padding: var(--gap) 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 nav div {
   color: var(--white);
-  padding: 0.5rem 1.25rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s;
 }
-nav div:hover,
-nav div.active {
+nav div.active,
+nav div:hover {
   background: var(--primary);
-  color: var(--white);
 }
 
 /* ====== Page Wrapper ====== */
@@ -54,48 +63,72 @@ nav div.active {
   display: block;
 }
 
-/* ====== Headers & Primary Buttons ====== */
-header,
-h1 {
+/* ====== Headings ====== */
+header, h1, h2 {
   text-align: center;
   margin-bottom: var(--gap);
   color: var(--dark);
 }
-button,
-.button {
+
+/* ====== Base Buttons ====== */
+.button, button {
   display: inline-block;
   background: var(--primary);
   color: var(--white);
   border: none;
   border-radius: var(--radius);
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
-button:hover,
-.button:hover {
+.button:hover, button:hover {
   transform: translateY(-2px);
   background: var(--dark);
 }
 
-/* ====== “Cancel” Button ====== */
-/* Just add class="cancel" to your cancel button */
-button#cancel-button {
+/* ====== Cancel & Danger Buttons ====== */
+.cancel-btn, #cancel-btn, #cancel-edit-btn, #cancel-delete-btn {
   background: transparent;
   color: var(--dark);
+  border: 1px solid var(--dark);
 }
-button#cancel-button:hover {
-  background: #FF4C4C;  /* red on hover */
+.cancel-btn:hover,
+#cancel-btn:hover,
+#cancel-edit-btn:hover,
+#cancel-delete-btn:hover {
+  background: var(--red);
   color: var(--white);
+}
+#confirm-delete-btn {
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#confirm-delete-btn:hover {
+  background: darken(var(--red), 10%);
+}
+
+/* ====== My Classes Section ====== */
+#my-classes-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+#my-classes-container > button {
+  align-self: flex-start;
 }
 
 /* ====== Course Cards ====== */
-#courses-container {
+#courses-container,
+#my-classes-container .term-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--gap);
-  margin-top: var(--gap);
 }
 .course-card {
   background: var(--white);
@@ -104,7 +137,7 @@ button#cancel-button:hover {
   padding: var(--gap);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
+  position: relative;
 }
 .course-card:hover {
   transform: translateY(-4px);
@@ -119,37 +152,38 @@ button#cancel-button:hover {
   color: #555;
   margin-bottom: 0.25rem;
 }
-
-/* ====== Two-Column Detail Layout ====== */
-.detail-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: var(--gap);
+.delete-course-button {
+  position: absolute;
+  top: var(--gap);
+  right: var(--gap);
+  background: transparent;
+  color: var(--red);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
 }
-.detail-container .left,
-.detail-container .right {
-  background: var(--white);
+.delete-course-button:hover {
+  color: darken(var(--red), 20%);
+}
+
+/* ====== Term Container ====== */
+.term-container {
+  border: 2px solid var(--primary);
   padding: var(--gap);
   border-radius: var(--radius);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.detail-container h2 {
+.term-container h3 {
   margin-top: 0;
-  color: var(--dark);
-}
-.detail-container p {
-  color: #333;
-  line-height: 1.5;
 }
 
-/* ====== Modal & Form ====== */
+/* ====== Modals ====== */
 .modal {
   display: none;
   position: fixed;
-  inset: 0; /* top/left/right/bottom = 0 */
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 999;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
   justify-content: center;
   align-items: center;
   padding: var(--gap);
@@ -157,92 +191,113 @@ button#cancel-button:hover {
 .modal.active {
   display: flex;
 }
-#create-course-form {
+.modal form {
   background: var(--white);
   width: 90vw;
-  max-width: 700px;
+  max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
-  padding: var(--gap);
+  padding: calc(var(--gap) * 1.5);
   border-radius: var(--radius);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-#create-course-form  input,
-#create-course-form select,
-#create-course-form textarea {
+.modal label,
+.modal p {
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+.modal input,
+.modal select,
+.modal textarea {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: var(--gap);
-  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: var(--radius);
 }
-#create-course-form button {
-  width: auto;
-  margin-right: var(--gap);
-}
-
-
-
-
-#add-course-form {
-  background: var(--white);
-  width: 90vw;
-  max-width: 700px;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: var(--gap);
-  border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-#add-course-form  input,
-#add-course-form select,
-#add-course-form textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: var(--gap);
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: var(--radius);
-}
-#add-course-form button {
-  width: auto;
-  margin-right: var(--gap);
-}
-
-
-
-/* ====== Semester Styles ====== */
-.term-container {
+.modal .modal-buttons {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   gap: var(--gap);
-  margin-top: var(--gap);
-  border: 2px solid var(--primary);
-  padding: var(--gap);
+}
+.modal .modal-buttons button {
+  min-width: 100px;
 }
 
-#edit-course-form {
-  background: var(--white);
-  width: 90vw;
-  max-width: 700px;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: var(--gap);
-  border-radius: var(--radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+/* ====== Explore Courses ====== */
+#courses-container {
+  margin-top: var(--gap);
 }
-#edit-course-form input,
-#edit-course-form select,
-#edit-course-form textarea {
-  width: 100%;
-  padding: 0.5rem;
+
+
+/* ====== Planner Page Enhancements ====== */
+#planner > header {
+  font-size: 2rem;
+  margin-bottom: calc(var(--gap) * 0.5);
+}
+
+#planner h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
   margin-bottom: var(--gap);
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: var(--radius);
 }
-#edit-course-form button {
-  width: auto;
-  margin-right: var(--gap);
+#add-course-button {
+  margin-left: var(--gap);
+  background: var(--white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 0.5rem 1rem;
+}
+#add-course-button:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* Wrap each term’s cards in its own “panel” */
+.term-container {
+  background: var(--white);
+  padding: calc(var(--gap) * 1.5);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: calc(var(--gap) * 2);
+}
+
+/* Term heading */
+.term-container h3 {
+  margin-top: 0;
+  margin-bottom: var(--gap);
+  font-size: 1.25rem;
+  color: var(--dark);
+  border-bottom: 1px solid #ddd;
+  padding-bottom: calc(var(--gap) * 0.5);
+}
+
+/*  Grid of cards within a term */
+.term-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--gap);
+}
+
+/* Tweak the planner cards for this page */
+.term-container .course-card {
+  border-color: var(--primary);
+  padding: calc(var(--gap) * 0.75);
+}
+.term-container .course-card h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.term-container .course-card p {
+  margin: 0.25rem 0;
+  color: #444;
+}
+
+/* Move “Delete” button down a little */
+.delete-course-button {
+  top: var(--gap);
+  right: var(--gap);
+  font-size: 0.9rem;
 }

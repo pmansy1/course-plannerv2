@@ -8,6 +8,8 @@ function showPage(pageId) {
       ? p.classList.add('active')
       : p.classList.remove('active')
   );
+  // Save current page to localStorage
+  localStorage.setItem('currentPage', pageId);
 }
 
 // wire up nav buttons
@@ -17,8 +19,9 @@ navButtons.forEach(btn => {
   });
 });
 
-// initialize
-showPage('home');
+// initialize with saved page or default to home
+const savedPage = localStorage.getItem('currentPage');
+showPage(savedPage || 'home');
 
 
 // -----  DISPLAYING COURSE CARDS  ------
@@ -52,7 +55,7 @@ function displayCourses(courses) {
     `;
     document.body.appendChild(detailSection);
 
-    // 4. Wire that “Back” button to return home
+    // 4. Wire that "Back" button to return home
     detailSection
       .querySelector('button[data-page="home"]')
       .addEventListener('click', () => showPage('home'));
@@ -88,13 +91,40 @@ function createCourseCard(course) {
     <p><strong>Department ID:</strong> ${course.departmentId}</p>
     <p><strong>Term:</strong> ${course.term}</p>
     <p><strong>Course Credits:</strong> ${course.credits}</p>
+    <button class="delete-course-button" data-course-id="${course.id}">Delete</button>
   `;
   return plannerCard;
 }
 
+// Save courses to localStorage
+function saveCoursesToLocalStorage() {
+  localStorage.setItem('addedCourses', JSON.stringify(addedCourses));
+}
 
+// Load courses from localStorage
+function loadCoursesFromLocalStorage() {
+  const savedCourses = localStorage.getItem('addedCourses');
+  if (savedCourses) {
+    addedCourses = JSON.parse(savedCourses);
+    // Restore the course plan
+    const plannerContainer = document.getElementById('my-classes-container');
+    addedCourses.forEach(courseId => {
+      const course = sampleCourses.find(c => c.id === courseId);
+      if (course) {
+        let termContainer = document.querySelector(`.term-container[data-term="${course.term}"]`);
+        if (!termContainer) {
+          termContainer = createTermContainer(course.term, plannerContainer);
+        }
+        const plannerCard = createCourseCard(course);
+        termContainer.appendChild(plannerCard);
+      }
+    });
+  }
+}
 
 // -----  ADD COURSE MODAL  ------
+
+let addedCourses = []; // Array to track added courses
 
 /// Populate the dropdown with courses from the sampleCourses array
 function initializeAddCourseModal() {
@@ -106,7 +136,6 @@ function initializeAddCourseModal() {
   const cancelButton = document.getElementById('cancel-btn');
   const submitButton = document.getElementById('submit-btn');
 
-  let addedCourses = []; // Array to track added courses
 
   // Populate the dropdown with courses
   function populateDropdown() {
@@ -170,6 +199,9 @@ function initializeAddCourseModal() {
 
     // Add the selected course ID to the addedCourses array
     addedCourses.push(selectedCourse.id);
+    
+    // Save to localStorage
+    saveCoursesToLocalStorage();
 
     // Close the modal and reset the form
     modal.classList.remove('active');
@@ -189,12 +221,64 @@ initializeAddCourseModal();
 // ----- DELETE COURSE FUNCTIONALITY  ------
 
 //TODO: Implement the delete functionality
-function initializeDeleteCourseButton() {
-  const deleteButtons = document.querySelectorAll('.delete-course-button');
-  deleteButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const courseId = button.dataset.courseId;
-      // Implement delete functionality here
-    });
+function initializeDeleteCourseModal() {
+  const plannerContainer = document.getElementById('my-classes-container');
+  const deleteModal = document.getElementById('delete-course-modal');
+  const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
+  const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
+
+  let courseToDelete = null; // Store the course card to delete
+
+  // Open the delete modal
+  plannerContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('delete-course-button')) {
+      courseToDelete = event.target.closest('.course-card'); // Get the course card
+      deleteModal.classList.add('active'); // Show the modal
+    }
+  });
+
+  // Confirm delete
+  confirmDeleteBtn.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent form submission
+
+    if (courseToDelete) {
+      const courseId = parseInt(courseToDelete.querySelector('.delete-course-button').dataset.courseId, 10);
+
+      // Remove the course from the addedCourses array
+      const courseIndex = addedCourses.indexOf(courseId);
+      if (courseIndex !== -1) {
+        addedCourses.splice(courseIndex, 1);
+      }
+
+      // Save to localStorage after deletion
+      saveCoursesToLocalStorage();
+
+      // Remove the course card from the DOM
+      const termContainer = courseToDelete.closest('.term-container');
+      courseToDelete.remove();
+
+      // Check if the term container is empty and remove it
+      if (termContainer && termContainer.querySelectorAll('.course-card').length === 0) {
+        termContainer.remove();
+      }
+
+      // Close the modal
+      deleteModal.classList.remove('active');
+      courseToDelete = null; // Reset the course to delete
+    }
+  });
+
+  // Cancel delete
+  cancelDeleteBtn.addEventListener('click', () => {
+    deleteModal.classList.remove('active'); // Hide the modal
+    courseToDelete = null; // Reset the course to delete
   });
 }
+
+// Initialize the delete course modal functionality
+initializeDeleteCourseModal();
+
+// Load saved courses when the page loads
+loadCoursesFromLocalStorage();
+
+
