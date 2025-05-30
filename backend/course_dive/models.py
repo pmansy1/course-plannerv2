@@ -11,15 +11,15 @@ class Course(models.Model):
     keywords = models.TextField(blank=True) #keywords for search
     prerequisites_txt = models.ManyToManyField('self', symmetrical=False, blank=True)
 
-    
     def __str__(self):
         return self.title
     
     def get_prerequisites(self):
-        return self.prerequisites.split(',') if self.prerequisites else []
+        return [course.title for course in self.prerequisites_txt.all()]
     
     def get_keywords(self):
         return self.keywords.split(',') if self.keywords else []
+
 class User(models.Model):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30)
@@ -28,7 +28,7 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.username
+        return self.last_name
 
 
 class CourseRecommendation(models.Model):

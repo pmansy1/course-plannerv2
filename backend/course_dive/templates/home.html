@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    {% block title %}Course Planner Home{% endblock %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Course Planner Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f8f9fa;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .card a:hover {
+            background-color: #1a252f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Your Course Planner</h1>
+    <p>Personalized academic planning made simple</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Create or Update Your Profile</h2>
+        <p>Set your interests, major, graduation year, and more to get the most accurate course recommendations.</p>
+        <a href="{% url 'create_user_profile' %}">Build Profile</a>
+    </div>
+
+    <div class="card">
+        <h2>Explore Available Courses</h2>
+        <p>View the full list of courses and find the ones that best suit your interests and academic path.</p>
+        <a href="{% url 'courses' %}">View Courses</a>
+    </div>
+
+    <div class="card">
+        <h2>Get Course Recommendations</h2>
+        <p>Based on your profile and interests, we’ll suggest courses that fit your goals.</p>
+        <a href="{% url 'recommend_courses' %}">See Recommendations</a>
+    </div>
+</div>
+
+</body>
+</html>

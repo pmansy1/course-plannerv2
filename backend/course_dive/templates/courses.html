@@ -1,5 +1,8 @@
 <html lang="en">
 <head>
+    {% extends 'base.html' %}
+    {% block title %}Recommended Courses{% endblock %}
+    {% load static %}
     <meta charset="UTF-8">
     <title>Courses</title>
     <style>
@@ -36,9 +39,11 @@
                 <p>{{ course.description }}</p>
                 <p class="keywords">Keywords: {{ course.keywords }}</p>
                 <p class="level">Level: {{ course.level }} | Credits: {{ course.credit_hours }}</p>
-                {% if course.get_prerequisites %}
-                    <p><strong>Prerequisites:</strong> {{ course.get_prerequisites|join:", " }}</p>
+                {% with course.get_prerequisites as prereqs %}
+                {% if prereqs %}
+                    <p><strong>Prerequisites:</strong> {{ prereqs|join:", " }}</p>
                 {% endif %}
+            {% endwith %}
             </div>
         {% endfor %}
     {% else %}

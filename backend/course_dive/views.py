@@ -9,7 +9,7 @@ from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
-    return JsonResponse({"message": "Welcome to Course Dive!"})
+    return render(request, 'home.html')
 
 
 def recommend_courses(request):
@@ -47,7 +47,12 @@ def get_available_courses(request):
 
 def get_all_courses(request):
     courses = Course.objects.all()
-    return render(request, 'course_dive/courses.html', {'courses': courses})
+    return render(request, 'courses.html', {'courses': courses})
+
+def course_search(request):
+    query = request.GET.get('q', '')
+    results = Course.objects.filter(title__icontains=query)
+    return render(request, 'course_search_results.html', {'results': results, 'query': query})
 
 def get_course_by_title(request, title):
     try:
