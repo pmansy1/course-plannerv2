@@ -1,4 +1,4 @@
-courses_data = {
+courses = {
     "American Studies": {
         "AMST202": {
             "title": "Early America",
@@ -6,7 +6,9 @@ courses_data = {
             "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Humanities"],
-            "tags": ["History"]  # Cross-listed as HIST 201:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}
+            "tags": [
+                "History"
+            ],  # Cross-listed as HIST 201:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}
         },
         "AMST203": {
             "title": "Conflicts and Cultures in American Society",
@@ -14,7 +16,7 @@ courses_data = {
             "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Humanities"],
-            "tags": []
+            "tags": [],
         },
         "AMST209": {
             "title": "African-American History",
@@ -22,7 +24,7 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Humanities"],
-            "tags": []
+            "tags": [],
         },
         "AMST271": {
             "title": "Decentering and Re-centering History: Anthropology of Museums",
@@ -30,7 +32,7 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Social Sciences"],
-            "tags": ["Anthropology"]
+            "tags": ["Anthropology"],
         },
         "AMST285": {
             "title": "Born in Blood: Violence and the Making of America",
@@ -38,82 +40,68 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Humanities"],
-            "tags": []
+            "tags": [],
         },
         "AMST301": {
             "title": "American Studies Seminar",
             "credits": 1.0,
-            "prereqs": ["AMST203"],  # Major core seminar, typically taken after introductory courses
+            "prereqs": [
+                "AMST203"
+            ],  # Major core seminar, typically taken after introductory courses
             "offered": ["Spring"],
             "gen_ed": ["Writing Emphasis 2"],
-            "tags": []
-        }
+            "tags": [],
+        },
     },
     "Anthropology": {
-        "ANTH101": {
+        "ANTH 101": {
             "title": "Introduction to Cultural Anthropology",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences", "Global Engagement"],
-            "tags": []
+            "gen_ed": ["Social Science"],
+            "tags": [],
         },
-        "ANTH204": {
-            "title": "Religions of the Black Atlantic",
+        "ANTH 300": {
+            "title": "Ethnographic Research Methods",
             "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Humanities"],
-            "tags": []
+            "prereqs": ["ANTH 101"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
         },
-        "ANTH205": {
-            "title": "Religions of Africa",
+        "ANTH 301": {
+            "title": "History of Anthropological Theory",
             "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Global Engagement"],
-            "tags": []
+            "prereqs": ["ANTH 101"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
         },
-        "ANTH207": {
-            "title": "Anthropological Perspectives on Women and Gender",
+        "ANTH 253": {
+            "title": "Urban Anthropology",
             "credits": 1.0,
-            "prereqs": [],
+            "prereqs": ["ANTH 101"],
             "offered": ["Spring"],
-            "gen_ed": ["Global Engagement"],
-            "tags": []
+            "gen_ed": ["Social Science"],
+            "tags": [],
         },
-        "ANTH215": {
-            "title": "Medical Anthropology",
+        "ANTH 317": {
+            "title": "Anthropology of Magic, Sorcery, and Witchcraft",
             "credits": 1.0,
-            "prereqs": ["ANTH101"],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences", "Global Engagement"],
-            "tags": []
+            "prereqs": ["ANTH 101"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
         },
-        "ANTH228": {
-            "title": "Anthropology from the Margins of South Asia",
+        "ANTH 401": {
+            "title": "Senior Seminar in Anthropology",
             "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Global Engagement"],
-            "tags": []
+            "prereqs": ["Senior Standing"],
+            "offered": ["Fall"],
+            "gen_ed": ["Writing Emphasis 2"],
+            "tags": [],
         },
-        "ANTH245": {
-            "title": "Anthropology and Global Health",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Global Engagement"],
-            "tags": []
-        },
-        "ANTH254": {
-            "title": "The Meaning of Work",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        }
     },
     "Art History": {
         "AHIS101": {
@@ -122,7 +110,7 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
         "AHIS102": {
             "title": "History of Art in the West II",
@@ -130,7 +118,7 @@ courses_data = {
             "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
         "AHIS226": {
             "title": "Drinking, Dining, and Community in Antiquity",
@@ -138,7 +126,7 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
         "AHIS241": {
             "title": "Classical Ideals: The Human Body in Ancient Art",
@@ -146,7 +134,10 @@ courses_data = {
             "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Arts"],
-            "tags": ["Classical Civilization", "Women, Gender, and Sexuality"]  # Cross-referenced as CLCV 241 and WMGS:contentReference[oaicite:2]{index=2}
+            "tags": [
+                "Classical Civilization",
+                "Women, Gender, and Sexuality",
+            ],  # Cross-referenced as CLCV 241 and WMGS:contentReference[oaicite:2]{index=2}
         },
         "AHIS361": {
             "title": "Seminar on Impressionism",
@@ -154,7 +145,7 @@ courses_data = {
             "prereqs": ["AHIS102"],
             "offered": ["Fall"],
             "gen_ed": ["Arts", "Writing Emphasis 2"],
-            "tags": ["Drawing"]
+            "tags": ["Drawing"],
         },
         "AHIS364": {
             "title": "Architectural Drawing",
@@ -162,7 +153,10 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Arts"],
-            "tags": ["Architecture", "Engineering"]  # Prerequisite for ENGR342 (cross-listed):contentReference[oaicite:3]{index=3}
+            "tags": [
+                "Architecture",
+                "Engineering",
+            ],  # Prerequisite for ENGR342 (cross-listed):contentReference[oaicite:3]{index=3}
         },
         "AHIS365": {
             "title": "Elements of Architectural Design",
@@ -170,492 +164,720 @@ courses_data = {
             "prereqs": ["AHIS364"],
             "offered": ["Spring"],
             "gen_ed": ["Arts"],
-            "tags": ["Architecture"]
-        }
+            "tags": ["Architecture"],
+        },
     },
     "Biology": {
-        "BIOL183L": {
-            "title": "Introductory Biology I (Lab)",
-            "credits": 1.25,
+        "BIOL 140": {
+            "title": "Biological Systems",
+            "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Natural Science"],
-            "tags": []
+            "tags": [],
         },
-        "BIOL182L": {
-            "title": "Introductory Biology II (Lab)",
+        "BIOL 141": {
+            "title": "Global Perspectives on Biodiversity and Conservation",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 182L": {
+            "title": "Evolution of Life (Introductory Biology I)",
+            "credits": 1.25,  # includes lab
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 183L": {
+            "title": "The Cellular Basis of Life (Introductory Biology II)",
             "credits": 1.25,
-            "prereqs": ["BIOL183L"],
+            "prereqs": ["BIOL 182L"],
             "offered": ["Spring"],
             "gen_ed": ["Natural Science"],
-            "tags": []
+            "tags": [],
         },
-        "BIOL215": {
-            "title": "Botany",
+        "BIOL 119": {
+            "title": "Nutrition: Food and Fads",
             "credits": 1.0,
-            "prereqs": ["BIOL182L"],
-            "offered": ["Spring"],
+            "prereqs": [],
+            "offered": ["Alternate Years"],
             "gen_ed": ["Natural Science"],
-            "tags": []
+            "tags": [],
         },
-        "BIOL226": {
-            "title": "Foundations in Molecular Biology",
+        "BIOL 120": {
+            "title": "Genes, Clones, and Biotechnology",
             "credits": 1.0,
-            "prereqs": ["BIOL182L"],
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 122": {
+            "title": "Toxicology",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 124": {
+            "title": "Genes and Human Disease",
+            "credits": 1.0,
+            "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Natural Science"],
-            "tags": []
+            "tags": [],
         },
-        "BIOL317": {
+        "BIOL 222L": {
+            "title": "Invertebrate Zoology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 182L", "BIOL 183L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 224L": {
+            "title": "Genetics",
+            "credits": 1.0,
+            "prereqs": ["BIOL 183L", "CHEM 112L"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science", "Writing Emphasis 2"],
+            "tags": [],
+        },
+        "BIOL 226L": {
+            "title": "Foundations & Techniques in Molecular Biology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 183L", "CHEM 112L"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science", "Writing Emphasis 2"],
+            "tags": [],
+        },
+        "BIOL 227L": {
+            "title": "Cell Biology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 183L", "CHEM 112L"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 233": {
+            "title": "Conservation Biology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 182L"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 302": {
+            "title": "Amphibian Ecology and Conservation",
+            "credits": 1.0,
+            "prereqs": ["BIOL 233"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 308L": {
+            "title": "Microbiology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 224L"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 310L": {
+            "title": "Developmental Biology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 224L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 315L": {
+            "title": "Vertebrate Zoology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 182L", "BIOL 183L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 317L": {
             "title": "Biochemistry",
             "credits": 1.0,
-            "prereqs": ["BIOL182L", "CHEM311"],
+            "prereqs": ["BIOL 183L", "CHEM 212L"],
             "offered": ["Fall"],
             "gen_ed": ["Natural Science"],
-            "tags": []
-        }
+            "tags": [],
+        },
+        "BIOL 319L": {
+            "title": "Animal Physiology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 183L", "CHEM 112L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 324": {
+            "title": "Advanced Molecular Approaches in Neurobiology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 224L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": ["Neuroscience"],
+        },
+        "BIOL 333L": {
+            "title": "Ecology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 182L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 429": {
+            "title": "Behavioral Mechanisms of Ecology",
+            "credits": 1.0,
+            "prereqs": ["BIOL 333L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "BIOL 446": {
+            "title": "Bacterial Pathogenesis",
+            "credits": 1.0,
+            "prereqs": ["BIOL 308L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
     },
     "Chemistry": {
-        "CHEM111": {
-            "title": "Introductory Chemistry I (w/Lab)",
-            "credits": 1.25,
+        "CHEM 111L": {
+            "title": "Introductory Chemistry I",
+            "credits": 1.25,  # includes lab
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Natural Science"],
-            "tags": []
+            "tags": [],
         },
-        "CHEM112": {
-            "title": "Introductory Chemistry II (w/Lab)",
+        "CHEM 112L": {
+            "title": "Introductory Chemistry II",
             "credits": 1.25,
-            "prereqs": ["CHEM111"],
+            "prereqs": ["CHEM 111L"],
             "offered": ["Spring"],
             "gen_ed": ["Natural Science"],
-            "tags": []
+            "tags": [],
         },
-        "CHEM211": {
-            "title": "Organic Chemistry I (w/Lab)",
+        "CHEM 211L": {
+            "title": "Organic Chemistry I",
             "credits": 1.25,
-            "prereqs": ["CHEM112"],
+            "prereqs": ["CHEM 112L"],
             "offered": ["Fall"],
             "gen_ed": ["Natural Science"],
-            "tags": []
+            "tags": [],
         },
-        "CHEM212": {
-            "title": "Organic Chemistry II (w/Lab)",
+        "CHEM 212L": {
+            "title": "Organic Chemistry II",
             "credits": 1.25,
-            "prereqs": ["CHEM211"],
+            "prereqs": ["CHEM 211L"],
             "offered": ["Spring"],
             "gen_ed": ["Natural Science"],
-            "tags": []
+            "tags": [],
         },
-        "CHEM311": {
-            "title": "Analytical Chemistry (w/Lab)",
-            "credits": 1.25,
-            "prereqs": ["CHEM112"],
+        "CHEM 230L": {
+            "title": "Analytical Chemistry",
+            "credits": 1.0,
+            "prereqs": ["CHEM 112L"],
             "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],  # Quantitative focus integrated in science context
-            "tags": []
-        }
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "CHEM 309L": {
+            "title": "Physical Chemistry I",
+            "credits": 1.0,
+            "prereqs": ["CHEM 112L", "PHYS 141L", "MATH 132"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "CHEM 310": {
+            "title": "Physical Chemistry II",
+            "credits": 1.0,
+            "prereqs": ["CHEM 309L"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "CHEM 316L": {
+            "title": "Physical Biochemistry",
+            "credits": 1.0,
+            "prereqs": ["CHEM 212L", "CHEM 309L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "CHEM 404": {
+            "title": "Advanced Inorganic Chemistry",
+            "credits": 1.0,
+            "prereqs": ["CHEM 310"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "CHEM 410": {
+            "title": "Advanced Biochemistry",
+            "credits": 1.0,
+            "prereqs": ["CHEM 317L"],  # Biochemistry in BIOL
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
     },
     "Computer Science": {
-        "CPSC115": {
-            "title": "Intro to Computer Science",
+        "CPSC 115L": {
+            "title": "Introduction to Computer Science",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall", "Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
         },
-        "CPSC203": {
+        "CPSC 203": {
             "title": "Mathematical Foundations of Computing",
             "credits": 1.0,
-            "prereqs": [],
+            "prereqs": ["CPSC 115L"],
             "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
         },
-        "CPSC215": {
+        "CPSC 215L": {
             "title": "Data Structures and Algorithms",
             "credits": 1.0,
-            "prereqs": ["CPSC115"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "CPSC315": {
-            "title": "Software Design",
-            "credits": 1.0,
-            "prereqs": ["CPSC215"],
+            "prereqs": ["CPSC 115L"],
             "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        }
-    },
-    "Economics": {
-        "ECON101": {
-            "title": "Introduction to Economics (Microeconomics)",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
         },
-        "ECON102": {
-            "title": "Introduction to Economics (Macroeconomics)",
+        "CPSC 219": {
+            "title": "Theory of Computation",
             "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "ECON301": {
-            "title": "Intermediate Microeconomic Theory",
-            "credits": 1.0,
-            "prereqs": ["ECON101", "MATH131"],
-            "offered": ["Fall"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "ECON302": {
-            "title": "Intermediate Macroeconomic Theory",
-            "credits": 1.0,
-            "prereqs": ["ECON102"],
+            "prereqs": ["CPSC 203"],
             "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        }
-    },
-    "English": {
-        "ENGL104": {
-            "title": "The American Experiment, Part I",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Humanities"],
-            "tags": []
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
         },
-        "ENGL105": {
-            "title": "The American Experiment, Part II",
+        "CPSC 275L": {
+            "title": "Introduction to Computer Systems",
             "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "ENGL110": {
-            "title": "Inventing English Literature",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "ENGL270": {
-            "title": "Creative Writing: Introduction to Writing Fiction and Poetry",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "ENGL334": {
-            "title": "Advanced Creative Writing: Fiction",
-            "credits": 1.0,
-            "prereqs": ["ENGL270"],
-            "offered": ["Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        }
-    },
-    "History": {
-        "HIST201": {
-            "title": "Early America",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Humanities"],
-            "tags": ["American Studies"]  # Cross-listed as AMST 202:contentReference[oaicite:4]{index=4}
-        },
-        "HIST202": {
-            "title": "Modern America",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "HIST221": {
-            "title": "Europe in the 20th Century",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "HIST236": {
-            "title": "History of the African Diaspora",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Humanities", "Global Engagement"],
-            "tags": []
-        }
-    },
-    "Mathematics": {
-        "MATH131": {
-            "title": "Calculus I",
-            "credits": 1.0,
-            "prereqs": ["Placement"],  # Requires appropriate math placement
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH132": {
-            "title": "Calculus II",
-            "credits": 1.0,
-            "prereqs": ["MATH131"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH205": {
-            "title": "Linear Algebra",
-            "credits": 1.0,
-            "prereqs": ["MATH132"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH207": {
-            "title": "Statistical Data Analysis",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        }
-    },
-    "Psychology": {
-        "PSYC101": {
-            "title": "Introduction to Psychology",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],  # Fulfills social science distribution
-            "tags": []
-        },
-        "PSYC261": {
-            "title": "Brain and Behavior",
-            "credits": 1.0,
-            "prereqs": ["PSYC101"],
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],  # Neuroscience-oriented psychology course:contentReference[oaicite:5]{index=5}
-            "tags": ["Neuroscience"]
-        },
-        "PSYC221": {
-            "title": "Research Design and Analysis",
-            "credits": 1.25,
-            "prereqs": ["PSYC101"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "PSYC301": {
-            "title": "Psychological Neuroscience",
-            "credits": 1.0,
-            "prereqs": ["PSYC261", "BIOL182L"],
+            "prereqs": ["CPSC 115L", "CPSC 203"],
             "offered": ["Spring"],
             "gen_ed": ["Natural Science"],
-            "tags": ["Neuroscience"]
-        }
+            "tags": [],
+        },
+        "CPSC 310": {
+            "title": "Software Design",
+            "credits": 1.0,
+            "prereqs": ["CPSC 215L"],
+            "offered": ["Fall"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "CPSC 315": {
+            "title": "Systems Software",
+            "credits": 1.0,
+            "prereqs": ["CPSC 275L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "CPSC 320": {
+            "title": "Analysis of Algorithms",
+            "credits": 1.0,
+            "prereqs": ["CPSC 215L", "MATH 205"],
+            "offered": ["Spring"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "CPSC 333": {
+            "title": "Computer Networks",
+            "credits": 1.0,
+            "prereqs": ["CPSC 315"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "CPSC 352": {
+            "title": "Artificial Intelligence",
+            "credits": 1.0,
+            "prereqs": ["CPSC 215L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "CPSC 360": {
+            "title": "Deep Learning",
+            "credits": 1.0,
+            "prereqs": ["CPSC 215L", "MATH 207"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "CPSC 372": {
+            "title": "Database Fundamentals",
+            "credits": 1.0,
+            "prereqs": ["CPSC 215L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "CPSC 375": {
+            "title": "High-Performance Computing",
+            "credits": 1.0,
+            "prereqs": ["CPSC 215L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
     },
-    "Public Policy & Law": {
-        "PBPL201": {
-            "title": "Introduction to Public Policy",
+    "Economics": {
+        "ECON 101": {
+            "title": "Principles of Microeconomics",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
+            "gen_ed": ["Social Science"],
+            "tags": [],
         },
-        "PBPL202": {
-            "title": "Law, Argument, and Public Policy",
+        "ECON 102": {
+            "title": "Principles of Macroeconomics",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
+            "gen_ed": ["Social Science"],
+            "tags": [],
         },
-        "PBPL350": {
-            "title": "Senior Seminar in Public Policy",
+        "ECON 218": {
+            "title": "Statistical Methods in Economics",
             "credits": 1.0,
-            "prereqs": ["PBPL201"],
+            "prereqs": ["ECON 101", "MATH 107"],
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "ECON 301": {
+            "title": "Intermediate Microeconomic Theory",
+            "credits": 1.0,
+            "prereqs": ["ECON 101", "MATH 131"],
             "offered": ["Fall"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "ECON 302": {
+            "title": "Intermediate Macroeconomic Theory",
+            "credits": 1.0,
+            "prereqs": ["ECON 102", "MATH 131"],
+            "offered": ["Spring"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "ECON 312": {
+            "title": "Mathematical Economics",
+            "credits": 1.0,
+            "prereqs": ["ECON 301", "MATH 228"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "ECON 316": {
+            "title": "Money and Banking",
+            "credits": 1.0,
+            "prereqs": ["ECON 102"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "ECON 318": {
+            "title": "Introduction to Econometrics",
+            "credits": 1.0,
+            "prereqs": ["ECON 218"],
+            "offered": ["Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "ECON 321": {
+            "title": "International Trade",
+            "credits": 1.0,
+            "prereqs": ["ECON 301"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "ECON 323": {
+            "title": "Public Economics",
+            "credits": 1.0,
+            "prereqs": ["ECON 301"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "ECON 351": {
+            "title": "Development Economics",
+            "credits": 1.0,
+            "prereqs": ["ECON 301"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "ECON 398": {
+            "title": "Senior Seminar in Economics",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Fall", "Spring"],
             "gen_ed": ["Writing Emphasis 2"],
-            "tags": []
-        }
+            "tags": [],
+        },
     },
-    "Sociology": {
-        "SOCL101": {
-            "title": "Principles of Sociology",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "SOCL201": {
-            "title": "Sociological Theory",
-            "credits": 1.0,
-            "prereqs": ["SOCL101"],
-            "offered": ["Fall"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "SOCL227": {
-            "title": "Urban Sociology",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": ["Urban Studies"]
-        },
-        "SOCL310": {
-            "title": "Research Methods in Sociology",
-            "credits": 1.0,
-            "prereqs": ["SOCL101", "SOCL201"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        }
-    },
-    "Studio Arts": {
-        "STAR121": {
-            "title": "Drawing I",
+    "English": {
+        "ENGL 260": {
+            "title": "Approaches to Literary Study",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "STAR122": {
-            "title": "Drawing II",
-            "credits": 1.0,
-            "prereqs": ["STAR121"],
-            "offered": ["Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "STAR141": {
-            "title": "Painting I",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "STAR231": {
-            "title": "Sculpture I",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        }
-    },
-    "Theater & Dance": {
-        "THDN103": {
-            "title": "Basic Acting",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "THDN123": {
-            "title": "Introduction to Ballet",
-            "credits": 0.5,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "THDN218": {
-            "title": "Principles of Movement",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "THDN304": {
-            "title": "Directing",
-            "credits": 1.0,
-            "prereqs": ["THDN103"],
-            "offered": ["Spring"],
-            "gen_ed": ["Arts", "Writing Emphasis 2"],
-            "tags": []
-        }
-    },
-    "Women, Gender, and Sexuality": {
-        "WMGS101": {
-            "title": "Introduction to Women, Gender, and Sexuality",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "WMGS206": {
-            "title": "Queer Studies: Issues and Controversies",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "WMGS314": {
-            "title": "Feminist Theory",
-            "credits": 1.0,
-            "prereqs": ["WMGS101"],
-            "offered": ["Spring"],
             "gen_ed": ["Humanities", "Writing Emphasis 2"],
-            "tags": []
-        }
-    },
-    "Writing and Rhetoric": {
-        "RHET103": {
-            "title": "College Writing",
+            "tags": [],
+        },
+        "ENGL 270": {
+            "title": "Shakespeare",
             "credits": 1.0,
             "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Writing Emphasis 1"],
-            "tags": []
-        },
-        "RHET125": {
-            "title": "Writing Workshop",
-            "credits": 0.5,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": [],
-            "tags": []
-        },
-        "RHET202": {
-            "title": "Writing in the Disciplines",
-            "credits": 1.0,
-            "prereqs": ["RHET103"],
             "offered": ["Spring"],
-            "gen_ed": [],
-            "tags": []
+            "gen_ed": ["Humanities"],
+            "tags": [],
         },
-        "RHET225": {
-            "title": "Argument and Exposition",
+        "ENGL 275": {
+            "title": "American Literature to 1865",
             "credits": 1.0,
-            "prereqs": ["RHET103"],
+            "prereqs": [],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "ENGL 290": {
+            "title": "Creative Writing: Poetry",
+            "credits": 1.0,
+            "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": [],
-            "tags": []
-        }
+            "tags": [],
+        },
+        "ENGL 319": {
+            "title": "Literary Theory and Criticism",
+            "credits": 1.0,
+            "prereqs": ["ENGL 260"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "ENGL 401": {
+            "title": "Senior Seminar in English",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Spring"],
+            "gen_ed": ["Writing Emphasis 2"],
+            "tags": [],
+        },
+    },
+    "Engineering": {
+        "ENGR 116": {
+            "title": "Introduction to Engineering Design",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 212L": {
+            "title": "Linear Circuit Theory",
+            "credits": 1.0,
+            "prereqs": ["PHYS 141L", "MATH 132"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 225": {
+            "title": "Mechanics I (Statics)",
+            "credits": 1.0,
+            "prereqs": ["PHYS 141L", "MATH 131"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 226": {
+            "title": "Mechanics II (Dynamics)",
+            "credits": 1.0,
+            "prereqs": ["ENGR 225"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 301L": {
+            "title": "Signal Processing and Applications",
+            "credits": 1.0,
+            "prereqs": ["ENGR 212L", "MATH 234"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 303L": {
+            "title": "Analog and Digital Communication",
+            "credits": 1.0,
+            "prereqs": ["ENGR 301L"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 306": {
+            "title": "Introduction to Machine Learning",
+            "credits": 1.0,
+            "prereqs": ["CPSC 215L", "MATH 207"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": ["Cross-listed Data Science"],
+        },
+        "ENGR 312": {
+            "title": "Automatic Control Systems",
+            "credits": 1.0,
+            "prereqs": ["ENGR 212L", "MATH 234"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 337": {
+            "title": "Thermodynamics",
+            "credits": 1.0,
+            "prereqs": ["CHEM 112L", "MATH 131"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 346L": {
+            "title": "Computational Neuroscience",
+            "credits": 1.0,
+            "prereqs": ["ENGR 212L", "NESC 201"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": ["Neuroscience"],
+        },
+        "ENGR 362L": {
+            "title": "Fluid Dynamics",
+            "credits": 1.0,
+            "prereqs": ["ENGR 225", "MATH 234"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENGR 401": {
+            "title": "Senior Design Project I",
+            "credits": 0.5,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Fall"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "ENGR 402": {
+            "title": "Senior Design Project II",
+            "credits": 0.5,
+            "prereqs": ["ENGR 401"],
+            "offered": ["Spring"],
+            "gen_ed": [],
+            "tags": [],
+        },
+    },
+    "Environmental Science": {
+        "ENVS 149": {
+            "title": "Introduction to Environmental Science",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENVS 204": {
+            "title": "Climate Change and Human Health",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENVS 286": {
+            "title": "Theory and Application of GIS",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "ENVS 305": {
+            "title": "Environmental Policy",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": ["Cross-listed Public Policy & Law"],
+        },
+        "ENVS 401": {
+            "title": "Environmental Science Senior Seminar",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Spring"],
+            "gen_ed": ["Writing Emphasis 2"],
+            "tags": [],
+        },
+    },
+    "Film Studies": {
+        "FILM 265": {
+            "title": "Introduction to Film Studies",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Humanities"],
+            "tags": ["Cross-listed English"],
+        },
+        "FILM 309": {
+            "title": "Film Theory and Criticism",
+            "credits": 1.0,
+            "prereqs": ["FILM 265"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "FILM 321": {
+            "title": "World Cinema",
+            "credits": 1.0,
+            "prereqs": ["FILM 265"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "FILM 355": {
+            "title": "Advanced Filmmaking",
+            "credits": 1.0,
+            "prereqs": [],  # some production experience recommended
+            "offered": ["Spring"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "FILM 401": {
+            "title": "Senior Seminar in Film Studies",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Spring"],
+            "gen_ed": ["Writing Emphasis 2"],
+            "tags": [],
+        },
     },
     "First Year Seminar": {
         "FYSM180": {
@@ -664,7 +886,7 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["First-Year Seminar", "Writing Emphasis 1"],
-            "tags": []
+            "tags": [],
         },
         "FYSM189": {
             "title": "The Global City",
@@ -672,7 +894,7 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["First-Year Seminar", "Writing Emphasis 1", "Global Engagement"],
-            "tags": []
+            "tags": [],
         },
         "FYSM193": {
             "title": "Science and Society",
@@ -680,8 +902,952 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["First-Year Seminar", "Writing Emphasis 1"],
-            "tags": []
-        }
+            "tags": [],
+        },
+    },
+    "History": {
+        "HIST 201": {
+            "title": "Early America (to 1865)",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Humanities", "Global Engagement"],
+            "tags": ["Cross-listed American Studies"],
+        },
+        "HIST 202": {
+            "title": "Modern America (since 1865)",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "HIST 233": {
+            "title": "Whiteness as a Racial Category",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Humanities", "Global Engagement"],
+            "tags": [],
+        },
+        "HIST 285": {
+            "title": "Violence in U.S. History (1754–1900)",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "HIST 311": {
+            "title": "Seminar: Critical Indigenous Histories",
+            "credits": 1.0,
+            "prereqs": ["One 200-level HIST"],
+            "offered": ["Fall"],
+            "gen_ed": ["Humanities", "Writing Emphasis 2"],
+            "tags": [],
+        },
+        "HIST 315": {
+            "title": "Seminar: Topics in European History",
+            "credits": 1.0,
+            "prereqs": ["One 200-level HIST"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+    },
+    "International Studies": {
+        "INTS 101": {
+            "title": "Introduction to International Studies",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Global Engagement"],
+            "tags": [],
+        },
+        "INTS 201": {
+            "title": "Global Lives (Intermediate Core)",
+            "credits": 1.0,
+            "prereqs": ["INTS 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Global Engagement"],
+            "tags": [],
+        },
+        "INTS 301": {
+            "title": "Research Methods in International Studies",
+            "credits": 1.0,
+            "prereqs": ["INTS 101"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "INTS 401": {
+            "title": "Senior Seminar in International Studies",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Spring"],
+            "gen_ed": ["Writing Emphasis 2"],
+            "tags": [],
+        },
+    },
+    "Mathematics": {
+        "MATH 103": {
+            "title": "Introduction to Sports Analytics",
+            "credits": 1.0,
+            "prereqs": [],  # placement exam recommended (no course prereq)
+            "offered": ["Fall"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 107": {
+            "title": "Elements of Statistics",
+            "credits": 1.0,
+            "prereqs": [],  # QLIT 101 or placement
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 114": {
+            "title": "Decision Making in Politics (Mathematics of Voting)",
+            "credits": 1.0,
+            "prereqs": [],  # placement or QLIT 101
+            "offered": ["Fall"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 123": {
+            "title": "Mathematical Gems",
+            "credits": 1.0,
+            "prereqs": ["QLIT 101"],  # quantitative literacy course
+            "offered": ["Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 127": {
+            "title": "Functions, Graphs, and Modeling",
+            "credits": 1.0,
+            "prereqs": [],  # placement or QLIT equivalent
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 131": {
+            "title": "Calculus I",
+            "credits": 1.25,  # includes required workshop
+            "prereqs": ["MATH 127"],  # or placement exam
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 131L": {
+            "title": "Calculus I Workshop",
+            "credits": 0.25,
+            "prereqs": ["MATH 131"],  # corequisite with Calc I
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 132": {
+            "title": "Calculus II",
+            "credits": 1.25,  # includes workshop component
+            "prereqs": ["MATH 131"],  # or appropriate exam score
+            "offered": ["Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 205": {
+            "title": "Abstraction and Argument",
+            "credits": 1.0,
+            "prereqs": ["MATH 132"],  # C+ or better in Calc II
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": ["Writing Emphasis 2"],  # writing intensive Part II requirement
+        },
+        "MATH 207": {
+            "title": "Statistical Data Analysis",
+            "credits": 1.0,
+            "prereqs": [
+                "MATH 107"
+            ],  # or MATH 127 and placement:contentReference[oaicite:3]{index=3}
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 209": {
+            "title": "Stochastic Processes",
+            "credits": 1.0,
+            "prereqs": ["MATH 132"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 214": {
+            "title": "Introduction to Combinatorics",
+            "credits": 1.0,
+            "prereqs": ["MATH 132"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 228": {
+            "title": "Linear Algebra (proof-based)",
+            "credits": 1.0,
+            "prereqs": ["MATH 132"],
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 229": {
+            "title": "Applied Linear Algebra",
+            "credits": 1.0,
+            "prereqs": ["MATH 132"],
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 231": {
+            "title": "Calculus III: Multivariable Calculus",
+            "credits": 1.25,
+            "prereqs": ["MATH 132"],
+            "offered": ["Fall"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 234": {
+            "title": "Differential Equations",
+            "credits": 1.0,
+            "prereqs": ["MATH 231"],
+            "offered": ["Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 237": {
+            "title": "Topics in Number Theory",
+            "credits": 1.0,
+            "prereqs": ["MATH 132"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 252": {
+            "title": "Introduction to Mathematical Modeling I",
+            "credits": 1.0,
+            "prereqs": ["MATH 131"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 254": {
+            "title": "Introduction to Mathematical Modeling II",
+            "credits": 1.0,
+            "prereqs": ["MATH 252"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 253": {
+            "title": "Number Theory and Applications",
+            "credits": 1.0,
+            "prereqs": ["MATH 132"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 305": {
+            "title": "Probability",
+            "credits": 1.0,
+            "prereqs": ["MATH 207"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 306": {
+            "title": "Mathematical Statistics",
+            "credits": 1.0,
+            "prereqs": ["MATH 305"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 307": {
+            "title": "Abstract Algebra",
+            "credits": 1.0,
+            "prereqs": ["MATH 205"],
+            "offered": ["Fall"],
+            "gen_ed": ["Numerical Reasoning", "Writing Emphasis 2"],
+            "tags": [],
+        },
+        "MATH 308": {
+            "title": "Topics in Advanced Algebra",
+            "credits": 1.0,
+            "prereqs": ["MATH 307"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 309": {
+            "title": "Numerical Analysis",
+            "credits": 1.0,
+            "prereqs": ["CPSC 115L", "MATH 228"],  # CS intro and Linear Algebra
+            "offered": ["Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": ["Applied Math concentration"],
+        },
+        "MATH 314": {
+            "title": "Combinatorics and Computing",
+            "credits": 1.0,
+            "prereqs": ["MATH 205"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 316": {
+            "title": "Topics in Applied Mathematics",
+            "credits": 1.0,
+            "prereqs": ["MATH 234"],  # after Differential Equations
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": ["Applied Math concentration"],
+        },
+        "MATH 318": {
+            "title": "Advanced Topics in Mathematics",
+            "credits": 1.0,
+            "prereqs": [],  # varies by topic
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 326": {
+            "title": "Graph Theory with Applications",
+            "credits": 1.0,
+            "prereqs": ["MATH 205"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": ["Applied Math concentration"],
+        },
+        "MATH 332": {
+            "title": "Analysis II (Real Analysis continuation)",
+            "credits": 1.0,
+            "prereqs": ["MATH 331"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 334": {
+            "title": "Differential Equations II / Dynamical Systems",
+            "credits": 1.0,
+            "prereqs": ["MATH 234"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": ["Applied Math concentration"],
+        },
+        "MATH 341": {
+            "title": "Complex Analysis",
+            "credits": 1.0,
+            "prereqs": ["MATH 331"],  # Analysis I
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "MATH 400": {
+            "title": "Senior Seminar in Mathematics",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Fall", "Spring"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "MATH 406": {
+            "title": "Reading and Research Seminar",
+            "credits": 1.0,
+            "prereqs": ["Instructor Permission"],
+            "offered": ["Spring"],
+            "gen_ed": [],
+            "tags": [],
+        },
+    },
+    "Music": {
+        "MUSC 101": {
+            "title": "Music Theory I",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Arts"],
+            "tags": [],
+        },
+        "MUSC 105": {
+            "title": "Introduction to World Music",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Global Engagement"],
+            "tags": [],
+        },
+        "MUSC 201": {
+            "title": "History of Western Music I",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "MUSC 227": {
+            "title": "Jazz: A Multicultural History",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Arts"],
+            "tags": [],
+        },
+        "MUSC 312": {
+            "title": "Composition Workshop",
+            "credits": 1.0,
+            "prereqs": ["MUSC 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Arts"],
+            "tags": [],
+        },
+        "MUSC 407": {
+            "title": "Senior Recital",
+            "credits": 0.5,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Spring"],
+            "gen_ed": [],
+            "tags": [],
+        },
+    },
+    "Neuroscience": {
+        "NESC 201": {
+            "title": "Principles of Neuroscience",
+            "credits": 1.0,
+            "prereqs": ["BIOL 182L", "PSYC 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "NESC 220": {
+            "title": "Statistics for Life Sciences",
+            "credits": 1.0,
+            "prereqs": ["MATH 107"],
+            "offered": ["Fall"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "NESC 301": {
+            "title": "Neuropharmacology",
+            "credits": 1.0,
+            "prereqs": ["PSYC 261", "BIOL 183L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "NESC 388": {
+            "title": "Current Issues in Neuroscience",
+            "credits": 1.0,
+            "prereqs": ["NESC 201"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "NESC 402": {
+            "title": "Senior Seminar in Neuroscience",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science", "Writing Emphasis 2"],
+            "tags": [],
+        },
+        "NESC 425": {
+            "title": "Neuroscience Research Lab",
+            "credits": 1.0,
+            "prereqs": ["NESC 201"],
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+    },
+    "Philosophy": {
+        "PHIL 101": {
+            "title": "Introduction to Philosophy",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "PHIL 103": {
+            "title": "Introduction to Ethics",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "PHIL 205": {
+            "title": "Symbolic Logic",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "PHIL 246": {
+            "title": "Philosophy of Science",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "PHIL 374": {
+            "title": "Minds and Brains",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Humanities"],
+            "tags": ["Cross-listed Neuroscience"],
+        },
+        "PHIL 390": {
+            "title": "Seminar in Philosophy",
+            "credits": 1.0,
+            "prereqs": ["One 200-level PHIL"],
+            "offered": ["Spring"],
+            "gen_ed": ["Writing Emphasis 2"],
+            "tags": [],
+        },
+    },
+    "Physics": {
+        "PHYS 141L": {
+            "title": "Physics I: Mechanics",
+            "credits": 1.25,
+            "prereqs": ["MATH 131"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PHYS 142L": {
+            "title": "Physics II: Electricity & Magnetism",
+            "credits": 1.25,
+            "prereqs": ["PHYS 141L", "MATH 132"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PHYS 232L": {
+            "title": "Physics III: Optics and Modern Physics",
+            "credits": 1.0,
+            "prereqs": ["PHYS 142L"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PHYS 300": {
+            "title": "Mathematical Methods of Physics",
+            "credits": 1.0,
+            "prereqs": ["PHYS 232L", "MATH 234"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PHYS 301": {
+            "title": "Classical Mechanics",
+            "credits": 1.0,
+            "prereqs": ["PHYS 232L", "MATH 234"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PHYS 302": {
+            "title": "Electrodynamics",
+            "credits": 1.0,
+            "prereqs": ["PHYS 232L", "MATH 234"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PHYS 304": {
+            "title": "Statistical and Thermal Physics",
+            "credits": 1.0,
+            "prereqs": ["PHYS 232L", "MATH 234"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PHYS 313": {
+            "title": "Quantum Mechanics",
+            "credits": 1.0,
+            "prereqs": ["PHYS 232L", "MATH 234"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PHYS 315": {
+            "title": "Advanced Laboratory",
+            "credits": 1.0,
+            "prereqs": ["PHYS 232L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science", "Writing Emphasis 2"],
+            "tags": [],
+        },
+    },
+    "Political Science": {
+        "POLS 102": {
+            "title": "American National Government",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "POLS 103": {
+            "title": "Introduction to International Relations",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "POLS 104": {
+            "title": "Comparative Politics",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "POLS 105": {
+            "title": "Introduction to Political Theory",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "POLS 242": {
+            "title": "Research Methods in Political Science",
+            "credits": 1.0,
+            "prereqs": ["POLS 102"],
+            "offered": ["Fall"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "POLS 310": {
+            "title": "Constitutional Law",
+            "credits": 1.0,
+            "prereqs": ["POLS 102"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": ["Cross-listed Public Policy & Law"],
+        },
+        "POLS 314": {
+            "title": "Comparative Urban Development",
+            "credits": 1.0,
+            "prereqs": ["POLS 104"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": ["Cross-listed Urban Studies"],
+        },
+        "POLS 316": {
+            "title": "International Law",
+            "credits": 1.0,
+            "prereqs": ["POLS 103"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "POLS 355": {
+            "title": "Urban Politics",
+            "credits": 1.0,
+            "prereqs": ["POLS 102"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": ["Cross-listed Urban Studies"],
+        },
+        "POLS 363": {
+            "title": "Global Justice",
+            "credits": 1.0,
+            "prereqs": ["POLS 105"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Humanities"],
+            "tags": [],
+        },
+        "POLS 401": {
+            "title": "Seminar in American Politics",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Fall"],
+            "gen_ed": ["Writing Emphasis 2"],
+            "tags": [],
+        },
+    },
+    "Portuguese": {
+        "PORT 101": {
+            "title": "Elementary Portuguese I",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Second Language"],
+            "tags": [],
+        },
+        "PORT 102": {
+            "title": "Elementary Portuguese II",
+            "credits": 1.0,
+            "prereqs": ["PORT 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Second Language"],
+            "tags": [],
+        },
+        "PORT 201": {
+            "title": "Intermediate Portuguese I",
+            "credits": 1.0,
+            "prereqs": ["PORT 102"],
+            "offered": ["Fall"],
+            "gen_ed": ["Second Language"],
+            "tags": [],
+        },
+        "PORT 202": {
+            "title": "Intermediate Portuguese II",
+            "credits": 1.0,
+            "prereqs": ["PORT 201"],
+            "offered": ["Spring"],
+            "gen_ed": ["Second Language"],
+            "tags": [],
+        },
+    },
+    "Psychology": {
+        "PSYC 101": {
+            "title": "Introduction to Psychological Science",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 206": {
+            "title": "Environmental Psychology and Sustainability",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Fall"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 212": {
+            "title": "Brain Health: Landscape Planning & Education",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PSYC 221L": {
+            "title": "Research Design and Analysis",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "PSYC 226": {
+            "title": "Social Psychology",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Fall"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 226L": {
+            "title": "Social Psychology Lab",
+            "credits": 0.25,
+            "prereqs": ["PSYC 226"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PSYC 237": {
+            "title": "Health Psychology",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 255": {
+            "title": "Cognitive Psychology",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 255L": {
+            "title": "Cognitive Psychology Lab",
+            "credits": 0.25,
+            "prereqs": ["PSYC 255"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PSYC 261": {
+            "title": "Brain and Behavior",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101", "BIOL 140"],
+            "offered": ["Fall", "Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": ["Neuroscience core"],
+        },
+        "PSYC 270": {
+            "title": "Clinical Psychology",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 273": {
+            "title": "Psychopathology (Abnormal Psychology)",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Fall"],
+            "gen_ed": ["Social Science", "Writing Emphasis 2"],
+            "tags": [],
+        },
+        "PSYC 293L": {
+            "title": "Sensation and Perception with Lab",
+            "credits": 1.0,
+            "prereqs": ["PSYC 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": [],
+        },
+        "PSYC 302": {
+            "title": "Behavioral Neuroscience",
+            "credits": 1.0,
+            "prereqs": ["PSYC 261"],
+            "offered": ["Fall"],
+            "gen_ed": ["Natural Science"],
+            "tags": ["Neuroscience"],
+        },
+        "PSYC 320": {
+            "title": "Neuroscience Across the Lifespan",
+            "credits": 1.0,
+            "prereqs": ["PSYC 261"],
+            "offered": ["Spring"],
+            "gen_ed": ["Natural Science"],
+            "tags": ["Neuroscience"],
+        },
+        "PSYC 332L": {
+            "title": "Psychological Assessment (Lab)",
+            "credits": 1.0,
+            "prereqs": ["PSYC 221L"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 339": {
+            "title": "Developmental Psychopathology",
+            "credits": 1.0,
+            "prereqs": ["PSYC 273"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 365": {
+            "title": "Cognitive and Social Neuroscience",
+            "credits": 1.0,
+            "prereqs": ["PSYC 261"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": ["Neuroscience"],
+        },
+        "PSYC 375": {
+            "title": "Special Topics in Psychology",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Irregular"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "PSYC 391": {
+            "title": "Psychology of Language",
+            "credits": 1.0,
+            "prereqs": ["PSYC 255"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PSYC 392": {
+            "title": "Human Neuropsychology",
+            "credits": 1.0,
+            "prereqs": ["PSYC 261"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Natural Science"],
+            "tags": ["Neuroscience"],
+        },
+        "PSYC 498": {
+            "title": "Senior Thesis I",
+            "credits": 0.5,
+            "prereqs": ["Instructor Permission"],
+            "offered": ["Fall"],
+            "gen_ed": [],
+            "tags": [],
+        },
+        "PSYC 499": {
+            "title": "Senior Thesis II",
+            "credits": 0.5,
+            "prereqs": ["PSYC 498"],
+            "offered": ["Spring"],
+            "gen_ed": [],
+            "tags": [],
+        },
+    },
+    "Public Policy & Law": {
+        "PBPL 201": {
+            "title": "Introduction to American Public Policy",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Fall"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PBPL 202": {
+            "title": "Law, Argument, and Public Policy",
+            "credits": 1.0,
+            "prereqs": [],
+            "offered": ["Spring"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PBPL 220": {
+            "title": "Research and Evaluation",
+            "credits": 1.0,
+            "prereqs": ["PBPL 201"],
+            "offered": ["Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "PBPL 331": {
+            "title": "Constitutional Law II: Civil Rights & Liberties",
+            "credits": 1.0,
+            "prereqs": ["POLS 102"],
+            "offered": ["Alternate Years"],
+            "gen_ed": [],
+            "tags": ["Cross-listed Political Science"],
+        },
+        "PBPL 414": {
+            "title": "Segregation and Public Policy",
+            "credits": 1.0,
+            "prereqs": ["PBPL 202"],
+            "offered": ["Spring"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "PBPL 497": {
+            "title": "Senior Thesis",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Fall"],
+            "gen_ed": [],
+            "tags": [],
+        },
     },
     "Quantitative Literacy": {
         "QLIT101": {
@@ -690,1135 +1856,290 @@ courses_data = {
             "prereqs": [],
             "offered": ["Fall", "Spring"],
             "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        }
-    },
-    "Mathematics": {
-        "MATH 103": {
-            "title": "Introduction to Sports Analytics",
-            "credits": 1.0,
-            "prereqs": ["QLIT 101"],  # Placement exam alternative not listed
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 107": {
-            "title": "Elements of Statistics",
-            "credits": 1.0,
-            "prereqs": ["QLIT 101"], 
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 114": {
-            "title": "Judgment and Decision Making",
-            "credits": 1.0,
-            "prereqs": ["QLIT 101"], 
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 117": {
-            "title": "Introduction to Statistics",
-            "credits": 1.0,
-            "prereqs": ["QLIT 101"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 123": {
-            "title": "Mathematical Gems",
-            "credits": 1.0,
-            "prereqs": ["QLIT 101"],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 127": {
-            "title": "Functions, Graphs, and Modeling",
-            "credits": 1.0,
-            "prereqs": ["QLIT 101"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 131": {
-            "title": "Calculus I",
-            "credits": 1.25,
-            "prereqs": ["MATH 127"],  # or placement exam
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 131L": {
-            "title": "Calculus I Workshop",
-            "credits": 0.25,
-            "prereqs": ["MATH 131"],  # corequisite
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 132": {
-            "title": "Calculus II",
-            "credits": 1.25,
-            "prereqs": ["MATH 131"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 205": {
-            "title": "Abstraction and Argument",
-            "credits": 1.0,
-            "prereqs": [],  # recommended strong background, no formal prereq
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 207": {
-            "title": "Statistical Data Analysis",
-            "credits": 1.0,
-            "prereqs": ["MATH 107", "MATH 127"], 
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 209": {
-            "title": "Stochastic Processes",
-            "credits": 1.0,
-            "prereqs": ["MATH 132"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 228": {
-            "title": "Linear Algebra",
-            "credits": 1.0,
-            "prereqs": ["MATH 132"], 
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 229": {
-            "title": "Applied Linear Algebra",
-            "credits": 1.0,
-            "prereqs": ["MATH 132"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 231": {
-            "title": "Calculus III: Multivariable Calculus",
-            "credits": 1.25,
-            "prereqs": ["MATH 132"],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 234": {
-            "title": "Differential Equations",
-            "credits": 1.0,
-            "prereqs": ["MATH 132"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 253": {
-            "title": "Number Theory and Its Application",
-            "credits": 1.0,
-            "prereqs": ["MATH 132"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 305": {
-            "title": "Probability",
-            "credits": 1.0,
-            "prereqs": ["MATH 231"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 307": {
-            "title": "Abstract Algebra I – Theory of Groups",
-            "credits": 1.0,
-            "prereqs": ["MATH 228", "MATH 205"], 
-            "offered": ["Fall"],
-            "gen_ed": ["Numerical & Symbolic Reasoning", "Writing Emphasis 2"],
-            "tags": []
-        },
-        "MATH 309": {
-            "title": "Numerical Analysis",
-            "credits": 1.0,
-            "prereqs": ["MATH 132", "CPSC 115"], 
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 334": {
-            "title": "Partial Differential Equations",
-            "credits": 1.0,
-            "prereqs": ["MATH 231", "MATH 234"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        },
-        "MATH 341": {
-            "title": "Complex Analysis",
-            "credits": 1.0,
-            "prereqs": ["MATH 231"],
-            "offered": ["Spring"],
-            "gen_ed": ["Numerical & Symbolic Reasoning"],
-            "tags": []
-        }
-    },
-
-    "Music": {
-        "MUSC 101": {
-            "title": "Basic Musicianship",
-            "credits": 1.25,
-            "prereqs": [], 
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 105": {
-            "title": "Instrumental Ensemble",
-            "credits": 0.5,
-            "prereqs": [], 
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Arts", "Wellness"],  # ARTW code
-            "tags": []
-        },
-        "MUSC 107": {
-            "title": "Music Lessons (individual instruction)",
-            "credits": 0.5,
-            "prereqs": ["MUSC 101"],  # may be taken concurrently
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 108": {
-            "title": "Steel Pan Ensemble",
-            "credits": 0.5,
-            "prereqs": [], 
-            "offered": ["Fall"],
-            "gen_ed": ["Arts", "Wellness"],  # ARTW
-            "tags": []
-        },
-        "MUSC 109": {
-            "title": "Jazz Ensemble",
-            "credits": 0.5,
-            "prereqs": [], 
-            "offered": ["Fall"],
-            "gen_ed": ["Arts", "Wellness"], 
-            "tags": []
-        },
-        "MUSC 111": {
-            "title": "Samba Ensemble",
-            "credits": 0.5,
-            "prereqs": [], 
-            "offered": ["Fall"],
-            "gen_ed": ["Arts", "Global Engagement"],  # GLB1 = Arts & Global
-            "tags": ["International Studies: Latin American & Caribbean", "Community Learning"]
-        },
-        "MUSC 113": {
-            "title": "Introduction to World Music",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Spring"],
-            "gen_ed": ["Arts", "Global Engagement"],  # GLB1
-            "tags": [
-                "International Studies: African Studies", 
-                "International Studies: Asian Studies", 
-                "International Studies: Latin American & Caribbean"
-            ]
-        },
-        "MUSC 133": {
-            "title": "Blues Women to Nicki Minaj",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 150": {
-            "title": "Before Lady Gaga and Beyoncé",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 175": {
-            "title": "Introduction to Recording Arts",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Fall"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 200": {
-            "title": "Composition",
-            "credits": 1.0,
-            "prereqs": ["MUSC 101"], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 209L": {
-            "title": "Organists’ Lab",
-            "credits": 0.25,
-            "prereqs": ["MUSC 107"],  # concurrent enrollment in organ lessons
-            "offered": ["Fall"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 218": {
-            "title": "American Popular Music",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 219": {
-            "title": "Toca Brasil! (Play Brazil!)",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts", "Global Engagement"],
-            "tags": ["International Studies: Latin American & Caribbean"]
-        },
-        "MUSC 252": {
-            "title": "The Beatles and Rock ’n’ Roll",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 260": {
-            "title": "Advanced Recording Arts",
-            "credits": 1.0,
-            "prereqs": ["MUSC 175"], 
-            "offered": ["Spring"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 268": {
-            "title": "Mozart and Beethoven",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 274": {
-            "title": "Jazz: 1900 to the Present",
-            "credits": 1.0,
-            "prereqs": [], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 311": {
-            "title": "From Plato and Aristotle to Bach and Handel",
-            "credits": 1.0,
-            "prereqs": ["MUSC 101"],
-            "offered": ["Fall"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 312": {
-            "title": "18th- and 19th-Century Music: From Mozart to Brahms",
-            "credits": 1.0,
-            "prereqs": ["MUSC 101"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        },
-        "MUSC 313": {
-            "title": "Inventions and Revolutions in Music",
-            "credits": 1.0,
-            "prereqs": ["MUSC 201"], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Arts"],
-            "tags": []
-        }
-    },
-
-    "Neuroscience": {
-        "NESC 107": {
-            "title": "The Divided Brain",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 120": {
-            "title": "Nervous Connections",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 210L": {
-            "title": "Neuroendocrinology (with lab)",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261"], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 248": {
-            "title": "Nature and Brain Health: From Urban Places to Wild Spaces",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "NESC 262": {
-            "title": "Introduction to Animal Behavior",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 301": {
-            "title": "Introduction to Neuroscience Methodology",
-            "credits": 1.0,
-            "prereqs": ["NESC 120"], 
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 305": {
-            "title": "Neurolaw",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 306": {
-            "title": "Social Neuroscience",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261"], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 307": {
-            "title": "Clinical Psychobiology",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261"], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 308": {
-            "title": "Cultural Neuroscience",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261", "ANTH 101"], 
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 312": {
-            "title": "Neurobiology of Movement",
-            "credits": 1.0,
-            "prereqs": ["NESC 201"], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 313": {
-            "title": "Emotion and Motivation",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261"], 
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 320": {
-            "title": "Developmental Neuroscience",
-            "credits": 1.0,
-            "prereqs": ["NESC 201"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 345": {
-            "title": "Mind, Brain, and Society",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261"], 
-            "offered": ["Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 362": {
-            "title": "Neuroethology",
-            "credits": 1.0,
-            "prereqs": ["NESC 201", "PSYC 261"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science", "Writing Emphasis 2"],
-            "tags": []
-        },
-        "NESC 364": {
-            "title": "Neuropsychopharmacology",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261", "NESC 201"], 
-            "offered": ["Spring"],
-            "gen_ed": ["Natural Science", "Writing Emphasis 2"],
-            "tags": []
-        },
-        "NESC 388": {
-            "title": "Current Issues in Neuroscience",
-            "credits": 0.5,
-            "prereqs": ["NESC 201", "Senior standing"],
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "NESC 425": {
-            "title": "Research in Neuroscience (Laboratory)",
-            "credits": 0.5,
-            "prereqs": ["Permission of instructor"], 
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        }
-    },
-
-    "Philosophy": {
-        "PHIL 101": {
-            "title": "Introduction to Philosophy",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "PHIL 103": {
-            "title": "Ethics",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "PHIL 205": {
-            "title": "Symbolic Logic",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "PHIL 217": {
-            "title": "Philosophy and Literature",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Humanities"],
-            "tags": ["Literature and Psychology minor"]
-        },
-        "PHIL 246": {
-            "title": "Bioethics",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "PHIL 281": {
-            "title": "History of Western Philosophy I",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "PHIL 283": {
-            "title": "History of Western Philosophy II",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "PHIL 374": {
-            "title": "Minds and Brains (Philosophy of Mind)",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        },
-        "PHIL 378": {
-            "title": "Philosophy of Mind",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Humanities"],
-            "tags": []
-        }
-    },
-
-    "Physics": {
-        "PHYS 131": {
-            "title": "General Physics I (with Lab)",
-            "credits": 1.25,
-            "prereqs": [],  # high-school physics or placement recommended
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "PHYS 132": {
-            "title": "General Physics II (with Lab)",
-            "credits": 1.25,
-            "prereqs": ["PHYS 131"],
-            "offered": ["Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "PHYS 141": {
-            "title": "Introductory Physics I (Mechanics)",
-            "credits": 1.0,
-            "prereqs": ["MATH 131"],
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "PHYS 231": {
-            "title": "Electricity and Magnetism",
-            "credits": 1.0,
-            "prereqs": ["PHYS 131", "MATH 132"],
-            "offered": ["Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "PHYS 232": {
-            "title": "Waves and Optics",
-            "credits": 1.0,
-            "prereqs": ["PHYS 231"],
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "PHYS 301": {
-            "title": "Modern Physics",
-            "credits": 1.0,
-            "prereqs": ["PHYS 232"],
-            "offered": ["Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        }
-    },
-
-    "Political Science": {
-        "POLS 102": {
-            "title": "American National Government",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "POLS 103": {
-            "title": "Comparative Politics",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "POLS 104": {
-            "title": "International Politics",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "POLS 105": {
-            "title": "Introduction to Political Theory",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "POLS 239": {
-            "title": "Global Politics of Climate Change",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": ["Environmental Studies"]
-        },
-        "POLS 241": {
-            "title": "Classical Political Thought",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "POLS 272": {
-            "title": "The American Presidency",
-            "credits": 1.0,
-            "prereqs": ["POLS 102"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "POLS 273": {
-            "title": "Congress and Public Policy",
-            "credits": 1.0,
-            "prereqs": ["POLS 102"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "POLS 310": {
-            "title": "American Foreign Policy",
-            "credits": 1.0,
-            "prereqs": ["POLS 104"],
-            "offered": ["Fall"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "POLS 321": {
-            "title": "Civil Rights and Liberties",
-            "credits": 1.0,
-            "prereqs": ["POLS 102"],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": ["Legal Studies"]
-        }
-    },
-
-    "Portuguese": {
-        "PORT 101": {
-            "title": "Elementary Portuguese I",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Second Language"],
-            "tags": []
-        },
-        "PORT 102": {
-            "title": "Elementary Portuguese II",
-            "credits": 1.0,
-            "prereqs": ["PORT 101"],
-            "offered": ["Spring"],
-            "gen_ed": ["Second Language"],
-            "tags": []
-        },
-        "PORT 201": {
-            "title": "Intermediate Portuguese I",
-            "credits": 1.0,
-            "prereqs": ["PORT 102"],
-            "offered": ["Fall"],
-            "gen_ed": ["Second Language"],
-            "tags": []
-        },
-        "PORT 202": {
-            "title": "Intermediate Portuguese II",
-            "credits": 1.0,
-            "prereqs": ["PORT 201"],
-            "offered": ["Spring"],
-            "gen_ed": ["Second Language"],
-            "tags": []
-        }
-    },
-
-    "Psychology": {
-        "PSYC 101": {
-            "title": "Introductory Psychology",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "PSYC 105": {
-            "title": "Research Design and Analysis",
-            "credits": 1.0,
-            "prereqs": ["PSYC 101"],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": ["Quantitative Competency"]
-        },
-        "PSYC 221": {
-            "title": "Abnormal Psychology",
-            "credits": 1.0,
-            "prereqs": ["PSYC 101"],
-            "offered": ["Fall"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "PSYC 255": {
-            "title": "Child Development",
-            "credits": 1.0,
-            "prereqs": ["PSYC 101"],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "PSYC 261": {
-            "title": "Brain and Behavior",
-            "credits": 1.0,
-            "prereqs": ["PSYC 101"],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "PSYC 301": {
-            "title": "Behavioral Neuroscience",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261"],
-            "offered": ["Fall"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "PSYC 302": {
-            "title": "Behavioral Neuroscience (with Lab)",
-            "credits": 1.25,
-            "prereqs": ["PSYC 261"],
-            "offered": ["Spring"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        },
-        "PSYC 334": {
-            "title": "Current Issues in Cognition",
-            "credits": 1.0,
-            "prereqs": ["PSYC 101", "PSYC 105"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "PSYC 365": {
-            "title": "Cognitive Neuroscience",
-            "credits": 1.0,
-            "prereqs": ["PSYC 261"],
-            "offered": ["Alternate Years"],
-            "gen_ed": ["Natural Science"],
-            "tags": []
-        }
-    },
-
-    "Public Policy & Law": {
-        "PBPL 201": {
-            "title": "Introduction to American Public Policy",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "PBPL 202": {
-            "title": "Law, Argument, and Public Policy",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
-        },
-        "PBPL 350": {
-            "title": "Senior Seminar in Public Policy",
-            "credits": 1.0,
-            "prereqs": ["PBPL 201", "PBPL 202"],
-            "offered": ["Fall"],
-            "gen_ed": ["Social Sciences", "Writing Emphasis 2"],
-            "tags": []
-        }
-    },
-
-    "Quantitative Literacy": {
-        "QLIT 101": {
-            "title": "Foundational Techniques for Quantitative Reasoning (Algebraic Reasoning)",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall", "Spring"],
-            "gen_ed": [],  # QLIT is a foundational skill course (required if placed)
-            "tags": []
+            "tags": [],
         }
         # (Quantitative literacy is a foundational requirement; QLIT 101 is the primary course)
     },
-
     "Religious Studies": {
-        "RELG 101": {
+        "RELG101": {
             "title": "Introduction to Religion",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Humanities"],
-            "tags": []
+            "tags": [],
         },
-        "RELG 109": {
+        "RELG109": {
             "title": "World Religions",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Humanities", "Global Engagement"],
-            "tags": []
+            "tags": [],
         },
-        "RELG 211": {
+        "RELG211": {
             "title": "Hebrew Bible",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Alternate Years"],
             "gen_ed": ["Humanities"],
-            "tags": []
+            "tags": [],
         },
-        "RELG 212": {
+        "RELG212": {
             "title": "New Testament",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Alternate Years"],
             "gen_ed": ["Humanities"],
-            "tags": []
+            "tags": [],
         },
-        "RELG 260": {
+        "RELG260": {
             "title": "Meditation, Medicine, and Mind",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Alternate Years"],
             "gen_ed": ["Humanities"],
-            "tags": []
-        }
+            "tags": [],
+        },
     },
-
     "Russian": {
-        "RUSS 101": {
+        "RUSS101": {
             "title": "Elementary Russian I",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Second Language"],
-            "tags": []
+            "tags": [],
         },
-        "RUSS 102": {
+        "RUSS102": {
             "title": "Elementary Russian II",
             "credits": 1.0,
-            "prereqs": ["RUSS 101"],
+            "prereqs": ["RUSS101"],
             "offered": ["Spring"],
             "gen_ed": ["Second Language"],
-            "tags": []
+            "tags": [],
         },
-        "RUSS 201": {
+        "RUSS201": {
             "title": "Intermediate Russian I",
             "credits": 1.0,
-            "prereqs": ["RUSS 102"],
+            "prereqs": ["RUSS102"],
             "offered": ["Fall"],
             "gen_ed": ["Second Language"],
-            "tags": []
+            "tags": [],
         },
-        "RUSS 202": {
+        "RUSS202": {
             "title": "Intermediate Russian II",
             "credits": 1.0,
-            "prereqs": ["RUSS 201"],
+            "prereqs": ["RUSS201"],
             "offered": ["Spring"],
             "gen_ed": ["Second Language"],
-            "tags": []
-        }
+            "tags": [],
+        },
     },
-
     "Sociology": {
         "SOCL 101": {
             "title": "Introduction to Sociology",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": []
+            "gen_ed": ["Social Science"],
+            "tags": [],
         },
-        "SOCL 201": {
-            "title": "Classical Sociological Theory",
+        "SOCL 201L": {
+            "title": "Research Methods in the Social Sciences",
             "credits": 1.0,
             "prereqs": ["SOCL 101"],
+            "offered": ["Spring"],
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
+        },
+        "SOCL 210": {
+            "title": "Quantitative Methods for Sociology",
+            "credits": 1.0,
+            "prereqs": ["SOCL 101", "MATH 107"],
             "offered": ["Fall"],
-            "gen_ed": ["Social Sciences", "Writing Emphasis 2"],
-            "tags": []
+            "gen_ed": ["Numerical Reasoning"],
+            "tags": [],
         },
-        "SOCL 202": {
-            "title": "Research Methods in Sociology",
-            "credits": 1.0,
-            "prereqs": ["SOCL 101"],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences"],
-            "tags": ["Quantitative Competency"]
-        },
-        "SOCL 227": {
-            "title": "Race, Racism, and Democracy",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Spring"],
-            "gen_ed": ["Social Sciences", "Global Engagement", "Identity, Power, and Equity"],
-            "tags": []
-        },
-        "SOCL 272": {
-            "title": "Sociology of Health and Illness",
+        "SOCL 214": {
+            "title": "Racism (Comparative Study of Race/Ethnicity)",
             "credits": 1.0,
             "prereqs": ["SOCL 101"],
             "offered": ["Alternate Years"],
-            "gen_ed": ["Social Sciences"],
-            "tags": ["Global Health"]
-        }
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "SOCL 227": {
+            "title": "Social Movements",
+            "credits": 1.0,
+            "prereqs": ["SOCL 101"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "SOCL 312": {
+            "title": "Social Class and Mobility",
+            "credits": 1.0,
+            "prereqs": ["SOCL 101"],
+            "offered": ["Alternate Years"],
+            "gen_ed": ["Social Science"],
+            "tags": [],
+        },
+        "SOCL 401": {
+            "title": "Senior Seminar in Sociology",
+            "credits": 1.0,
+            "prereqs": ["Senior Standing"],
+            "offered": ["Spring"],
+            "gen_ed": ["Writing Emphasis 2"],
+            "tags": [],
+        },
     },
-
     "Studio Arts": {
-        "ARTS 101": {
+        "ARTS101": {
             "title": "Drawing I",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall", "Spring"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
-        "ARTS 107": {
+        "ARTS107": {
             "title": "Painting I",
             "credits": 1.0,
-            "prereqs": ["ARTS 101"],
+            "prereqs": ["ARTS101"],
             "offered": ["Spring"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
-        "ARTS 111": {
+        "ARTS111": {
             "title": "Three-Dimensional Design",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
-        "ARTS 151": {
+        "ARTS151": {
             "title": "Photography I",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall", "Spring"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
-        "ARTS 225": {
+        "ARTS225": {
             "title": "Digital Art",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Arts"],
-            "tags": []
-        }
+            "tags": [],
+        },
     },
-
     "Theater & Dance": {
-        "THDN 101": {
+        "THDN101": {
             "title": "Introduction to Theater",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
-        "THDN 111": {
+        "THDN111": {
             "title": "Fundamentals of Acting",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall", "Spring"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
-        "THDN 123": {
+        "THDN123": {
             "title": "Stagecraft",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Arts"],
-            "tags": []
+            "tags": [],
         },
-        "THDN 235": {
+        "THDN235": {
             "title": "History of Theater",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Alternate Years"],
             "gen_ed": ["Humanities"],
-            "tags": []
+            "tags": [],
         },
-        "THDN 309": {
+        "THDN309": {
             "title": "Directing for the Theater",
             "credits": 1.0,
-            "prereqs": ["THDN 111"],
+            "prereqs": ["THDN111"],
             "offered": ["Alternate Years"],
             "gen_ed": ["Arts"],
-            "tags": []
-        }
+            "tags": [],
+        },
     },
-
     "Women, Gender, and Sexuality": {
-        "WMGS 101": {
+        "WMGS101": {
             "title": "Introduction to Women, Gender, and Sexuality",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall", "Spring"],
-            "gen_ed": ["Social Sciences", "Global Engagement", "Identity, Power, and Equity"],
-            "tags": []
+            "gen_ed": [
+                "Social Sciences",
+                "Global Engagement",
+                "Identity, Power, and Equity",
+            ],
+            "tags": [],
         },
-        "WMGS 207": {
+        "WMGS207": {
             "title": "Gender and Sexuality in a Global World",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Spring"],
             "gen_ed": ["Social Sciences", "Global Engagement"],
-            "tags": []
+            "tags": [],
         },
-        "WMGS 301": {
+        "WMGS301": {
             "title": "Feminist Theories",
             "credits": 1.0,
-            "prereqs": ["WMGS 101"],
+            "prereqs": ["WMGS101"],
             "offered": ["Fall"],
             "gen_ed": ["Social Sciences", "Writing Emphasis 2"],
-            "tags": []
-        }
+            "tags": [],
+        },
     },
-
     "Writing and Rhetoric": {
-        "RHET 101": {
+        "RHET101": {
             "title": "College Writing",
             "credits": 1.0,
             "prereqs": [],
             "offered": ["Fall", "Spring"],
             "gen_ed": ["Writing Emphasis 1"],
-            "tags": []
+            "tags": [],
         },
-        "RHET 208": {
+        "RHET208": {
             "title": "Argument and Exposition",
             "credits": 1.0,
-            "prereqs": ["RHET 101"],
+            "prereqs": ["RHET101"],
             "offered": ["Spring"],
             "gen_ed": ["Writing Emphasis 2"],
-            "tags": []
+            "tags": [],
         },
-        "RHET 225": {
+        "RHET225": {
             "title": "Creative Nonfiction",
             "credits": 1.0,
-            "prereqs": ["RHET 101"],
+            "prereqs": ["RHET101"],
             "offered": ["Fall"],
             "gen_ed": ["Writing Emphasis 2"],
-            "tags": []
+            "tags": [],
         },
-        "RHET 302": {
+        "RHET302": {
             "title": "Writing Theories and Practice",
             "credits": 1.0,
-            "prereqs": ["RHET 202"],  # assuming RHET 202 is Writing in the Disciplines
+            "prereqs": ["RHET202"],  # assuming RHET 202 is Writing in the Disciplines
             "offered": ["Alternate Years"],
             "gen_ed": ["Humanities", "Writing Emphasis 2"],
-            "tags": []
-        }
-    }
+            "tags": [],
+        },
+    },
 }
-
