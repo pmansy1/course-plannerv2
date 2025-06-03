@@ -220,7 +220,6 @@ initializeAddCourseModal();
 
 // ----- DELETE COURSE FUNCTIONALITY  ------
 
-//TODO: Implement the delete functionality
 function initializeDeleteCourseModal() {
   const plannerContainer = document.getElementById('my-classes-container');
   const deleteModal = document.getElementById('delete-course-modal');
