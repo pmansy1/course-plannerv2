@@ -1579,40 +1579,6 @@ courses = {
             "tags": [],
         },
     },
-    "Portuguese": {
-        "PORT 101": {
-            "title": "Elementary Portuguese I",
-            "credits": 1.0,
-            "prereqs": [],
-            "offered": ["Fall"],
-            "gen_ed": ["Second Language"],
-            "tags": [],
-        },
-        "PORT 102": {
-            "title": "Elementary Portuguese II",
-            "credits": 1.0,
-            "prereqs": ["PORT 101"],
-            "offered": ["Spring"],
-            "gen_ed": ["Second Language"],
-            "tags": [],
-        },
-        "PORT 201": {
-            "title": "Intermediate Portuguese I",
-            "credits": 1.0,
-            "prereqs": ["PORT 102"],
-            "offered": ["Fall"],
-            "gen_ed": ["Second Language"],
-            "tags": [],
-        },
-        "PORT 202": {
-            "title": "Intermediate Portuguese II",
-            "credits": 1.0,
-            "prereqs": ["PORT 201"],
-            "offered": ["Spring"],
-            "gen_ed": ["Second Language"],
-            "tags": [],
-        },
-    },
     "Psychology": {
         "PSYC 101": {
             "title": "Introduction to Psychological Science",
