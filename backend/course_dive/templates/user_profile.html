@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Here's what we know about you. Keep it updated to get the best recommendations!</p>
+<div class="container mt-5">
+    <p> Welcome, {{ profile.first_name }}!</p>
+    <h2>{{ profile.first_name }} 's Profile</h2>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Age:</strong> {{ profile.age }}</p>
+    <p><strong>Major:</strong> {{ profile.major }}</p>
+    <p><strong>Minor:</strong> {{ profile.minor }}</p>
+    <p><strong>Year:</strong> {{ profile.year }}</p>
+    <p><strong>Expected Graduation Year:</strong> {{ profile.exp_grad_year }}</p>
+    <p><strong>Credits Completed:</strong> {{ profile.credits_completed }}</p>
+    <p><strong>Interests:</strong> {{ profile.interests }}</p>
+
+    <h4 class="mt-4">Completed Courses:</h4>
+    <ul>
+        {% for course in completed_courses %}
+            <li>{{ course.title }}</li>
+        {% empty %}
+            <li>No completed courses yet.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Home</a>
+    <a href="{% url 'create_user_profile' %}" class="button">Edit Profile</a>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<h2>Search Results</h2>
+
+{% if courses %}
+    <p>{{ courses|length }} course(s) found.</p>
+    {% for course in courses %}
+        <div>
+            <h3>{{ course.title }}</h3>
+            <p>{{ course.description }}</p>
+            <p><strong>Keywords:</strong> {{ course.keywords }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No courses matched your search.</p>
+{% endif %}
+{% endblock %}
