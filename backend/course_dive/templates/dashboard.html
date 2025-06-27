@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+    <h2>Welcome Back</h2>
+    <div class="dashboard-section">
+        <h3>📍 Your Path Planner</h3>
+        <p>Explore your customized semester plan and adjust your journey.</p>
+        <a href="{% url 'find_path' %}" class="button">View My Plan</a>
+    </div>
+    <div class="dashboard-section">
+        <h3>🧭 What's Next?</h3>
+        <ul>
+            <li>🔍 Search for courses by interest</li>
+            <li>💡 Get new course recommendations</li>
+            <li>📜 Update your profile anytime</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
