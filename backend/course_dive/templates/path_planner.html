@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Course Path Planner</h2>
+
+<form method="POST" action="{% url 'generate_plan' %}">
+  {% csrf_token %}
+
+  <label for="major">Major:</label>
+  <select name="major" required>
+    <option value="Computer Science">Computer Science</option>
+    <option value="Astrophysics">Astrophysics</option>
+    <!-- Add more majors -->
+  </select>
+
+  <label for="minor">Minor (optional):</label>
+  <select name="minor">
+    <option value="">None</option>
+    <option value="Math">Math</option>
+    <option value="Business">Business</option>
+    <!-- Add more minors -->
+  </select>
+
+  <label for="year">Year:</label>
+  <select name="year" required>
+    <option value="Freshman">Freshman</option>
+    <option value="Sophomore">Sophomore</option>
+    <option value="Junior">Junior</option>
+    <option value="Senior">Senior</option>
+  </select>
+
+  <label>Schedule System:</label>
+  <input type="radio" name="schedule" value="Quarter" checked> Quarter
+  <input type="radio" name="schedule" value="Semester"> Semester
+
+  <label for="credits">Credits per term:</label>
+  <input type="number" name="credits" min="1" max="25" value="16">
+
+  <label for="difficulty">Difficulty Preference:</label>
+  <select name="difficulty">
+    <option value="Easy">Easy</option>
+    <option value="Moderate">Moderate</option>
+    <option value="Challenging">Challenging</option>
+  </select>
+
+  <label for="interests">Interests (comma-separated):</label>
+  <input type="text" name="interests" placeholder="AI, Astronomy, Finance">
+
+  <button type="submit">Generate Plan</button>
+</form>
+{% endblock %}

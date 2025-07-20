@@ -1,52 +1,83 @@
+# Final Complete Cleaning Solution Based on Analyzed Issues
+
 import pandas as pd
 import re
 from collections import Counter
 
-def extract_keywords(text, top_n=5):
+# --- Load Dataset ---
+df = pd.read_csv('/Users/joy/Downloads/final_cleaned_courses.csv', dtype={'Course Code': str})
+
+# --- Step 1: Clean Description (Spacing Fixes Only) ---
+def fix_description_spacing(text):
     if not isinstance(text, str):
-        return ""
-    # Remove punctuation and split
-    words = re.findall(r'\b\w{4,}\b', text.lower())  # skip short/common words
-    common = Counter(words).most_common(top_n)
-    return ", ".join(word for word, _ in common)
+        return ''
+    text = text.replace('\n', ' ').replace('\r', ' ').replace('\xa0', ' ')
+    text = re.sub(r'([a-z])([A-Z])', r'\1 \2', text)
+    text = re.sub(r'([A-Z]+)([A-Z][a-z])', r'\1 \2', text)
+    text = re.sub(r'([a-zA-Z])(\d)', r'\1 \2', text)
+    text = re.sub(r'(\d)([a-zA-Z])', r'\1 \2', text)
+    text = re.sub(r'\s{2,}', ' ', text)
+    return text.strip().capitalize()
 
-def extract_prerequisites(text):
+df['Description'] = df['Description'].apply(fix_description_spacing)
+
+# --- Step 2: Extract Prerequisites ---
+def extract_course_codes(text):
     if not isinstance(text, str):
-        return ""
-    text = text.lower()
-    match = re.search(r'(prerequisite[s]?:.*?\.|must complete.*?\.|required.*?\.)', text)
-    return match.group(0).strip() if match else ""
+        return ''
+    codes = re.findall(r'\b[A-Z]{2,4}\s*\d{3,4}\b', text)
+    codes = [re.sub(r'\s+', '', c) for c in codes]
+    return ', '.join(sorted(set(codes)))
 
-def extract_credit_hours(title):
-    if not isinstance(title, str):
-        return 0
-    match = re.search(r'\((\d+)[–-]?(\d+)?\s*credits?\)', title.lower())
-    if match:
-        return int(match.group(2)) if match.group(2) else int(match.group(1))
-    return 0
+def normalize_prerequisites(row):
+    combined = f"{row.get('Description', '')} {row.get('Prerequisites', '')} {row.get('Preq_Notes', '')}"
+    return extract_course_codes(combined)
 
-def extract_level(description):
-    if not description or not isinstance(description, str):
-        return "Unknown"
+df['Prerequisites'] = df.apply(normalize_prerequisites, axis=1)
 
-    desc = description.lower()
-    if any(term in desc for term in ['advanced', 'capstone', 'upper-level']):
-        return "Advanced"
-    elif any(term in desc for term in ['intermediate', '2000-level']):
-        return "Intermediate"
-    elif any(term in desc for term in ['introduction', 'intro', '1000-level']):
-        return "Beginner"
-    return "Unknown"
+# --- Step 3: Clean Preq_Notes (Restrictions Only) ---
+restriction_phrases = [
+    'sophomore standing', 'junior standing', 'senior standing',
+    'business minors only', 'admission to daniels college of business',
+    'microsoft excel certification', 'declared minor', 'must be a daniels student',
+    'instructor\'s permission', 'honors program', 'common curriculum requirements'
+]
 
-# Load and preprocess
-df = pd.read_csv("/Users/joy/Downloads/course_planner/course-plannerv2/all_course_du.csv")
-df.fillna('', inplace=True)
+def extract_restrictions(text):
+    if not isinstance(text, str):
+        return ''
+    restrictions = []
+    for phrase in restriction_phrases:
+        if re.search(phrase, text, re.IGNORECASE):
+            restrictions.append(phrase.capitalize() + '.')
+    return ' '.join(sorted(set(restrictions)))
 
-df['keywords'] = df['Description'].apply(extract_keywords)
-df['prerequisites'] = df['Description'].apply(extract_prerequisites)
-df['credit_hours'] = df['Course Title'].apply(extract_credit_hours)
-df['level'] = df['Description'].apply(extract_level)
+df['Preq_Notes'] = df.apply(lambda row: extract_restrictions(f"{row.get('Description', '')} {row.get('Preq_Notes', '')}"), axis=1)
 
-# Save for import into Django
-df.to_csv("/Users/joy/Downloads/course_planner/course-plannerv2/preprocessed_courses.csv", index=False)
-df[['Course Title', 'keywords', 'prerequisites', 'credit_hours', 'level']].head()
+# --- Step 4: Clean Keywords ---
+stopwords = set(['students', 'course', 'including', 'focuses', 'introduction', 'overview', 'this', 'will'])
+
+def generate_keywords(description):
+    if not isinstance(description, str):
+        return ''
+    words = re.findall(r'\b[a-z]{3,}\b', description.lower())
+    filtered = [w for w in words if w not in stopwords]
+    common = Counter(filtered).most_common(10)
+    return ', '.join([w for w, _ in common])
+
+df['Keywords'] = df['Description'].apply(generate_keywords)
+
+# --- Step 5: Normalize Course Code Column ---
+def clean_course_code(code):
+    if not isinstance(code, str):
+        return ''
+    return ''.join(re.findall(r'\d+', code))
+
+df['Course Code'] = df['Course Code'].apply(clean_course_code)
+
+# --- Step 6: Deduplicate Rows ---
+df.drop_duplicates(inplace=True)
+
+# --- Step 7: Save Final Output ---
+df.to_csv('final_cleaned_output.csv', index=False)
+print("Cleaning complete. Saved to final_cleaned_output.csv")

@@ -11,6 +11,7 @@ from django.db.models import Q
 from .forms import CustomUserCreationForm, UserProfileForm
 from django.contrib import messages
 from django.contrib.auth import login
+from collections import defaultdict
 
 def home_view(request):
     if request.user.is_authenticated:
@@ -67,20 +68,27 @@ def get_available_courses(request):
     available_courses_list = [{'title': course} for course in available_courses]
     return JsonResponse(available_courses_list, safe=False)
 
+def tokenize_keywords(input_str):
+    return [kw.strip().lower() for kw in input_str.split(',') if kw.strip()]
+
 def course_search(request):
     query = request.GET.get('q', '').strip()
     results = []
 
     if query:
-        results = Course.objects.filter(
-            Q(title__icontains=query) |
-            Q(description__icontains=query) |
-            Q(keywords__icontains=query)
-        )
+        keywords = tokenize_keywords(query)
+        q_filter = Q()
+        for kw in keywords:
+            q_filter |= Q(keywords__icontains=kw)
+            q_filter |= Q(title__icontains=kw)
+            q_filter |= Q(description__icontains=kw)
+
+        results = Course.objects.filter(q_filter).distinct().order_by('title')
 
     return render(request, 'search_results.html', {
         'query': query,
-        'results': results
+        'results': results,
+        'result_count': len(results)
     })
 
 def get_course_by_title(request, title):
@@ -100,7 +108,7 @@ def find_path(request):
     completed_courses = user_profile.completed_courses.all()
     completed_course_titles = [course.title for course in completed_courses]
 
-    course_qs = Course.objects.all()
+    course_qs = Course.objects.all().values('title', 'description', 'keywords', 'prerequisites')
     course_df = pd.DataFrame.from_records(course_qs)
     prereq_pairs = []
 
@@ -180,9 +188,18 @@ def create_user_profile(request):
 
     return render(request, 'create_user_profile.html', {'form': form})
 
-def all_courses(request):  
-    courses = Course.objects.all()
-    return render(request, 'all_courses.html', {'courses': courses})
+def all_courses(request):
+    courses = Course.objects.prefetch_related('prerequisites__prerequisite_course').all()
+    courses_by_department = {}
+    for course in courses:
+        dept = course.department or "Other"
+        if dept not in courses_by_department:
+            courses_by_department[dept] = []
+        courses_by_department[dept].append(course)
+    
+    return render(request, 'all_courses.html', {
+        'courses_by_department': courses_by_department
+    })
 
 def welcome_new_user_view(request):
     if request.user.is_authenticated:

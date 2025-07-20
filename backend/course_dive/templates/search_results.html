@@ -3,16 +3,15 @@
 {% block content %}
 <h2>Search Results</h2>
 
-{% if courses %}
-    <p>{{ courses|length }} course(s) found.</p>
-    {% for course in courses %}
-        <div>
-            <h3>{{ course.title }}</h3>
-            <p>{{ course.description }}</p>
-            <p><strong>Keywords:</strong> {{ course.keywords }}</p>
-        </div>
-    {% endfor %}
-{% else %}
-    <p>No courses matched your search.</p>
-{% endif %}
-{% endblock %}
+{% for course in results %}
+  <div class="card p-4 border shadow-md my-3">
+    <h3 class="text-xl font-bold">{{ course.title }}</h3>
+    <p class="text-sm text-gray-600">{{ course.description|truncatewords:30 }}</p>
+    <div class="mt-2">
+      <span class="text-xs text-gray-500 font-semibold">Keywords:</span>
+      {% for kw in course.keywords.split(',') %}
+        <span class="badge badge-outline mx-1">{{ kw.strip }}</span>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
