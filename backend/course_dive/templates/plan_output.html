@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Personalized Course Plan</h2>
+
+<p><strong>Major:</strong> {{ plan.major }}</p>
+<p><strong>Minor:</strong> {{ plan.minor }}</p>
+<p><strong>Year:</strong> {{ plan.year }}</p>
+<p><strong>Schedule:</strong> {{ plan.schedule }}</p>
+
+{% for term in plan.terms %}
+  <h3>{{ term.name }}</h3>
+  <div class="term-courses">
+    {% for course in term.courses %}
+      <div class="course-card">
+        <h4>{{ course.title }} (CRN: {{ course.crn }})</h4>
+        <p><strong>Credits:</strong> {{ course.credit_hours }}</p>
+        <p><strong>Level:</strong> {{ course.level }}</p>
+        <p><strong>Keywords:</strong> {{ course.keywords }}</p>
+        <p><strong>Prerequisites:</strong> {{ course.prerequisites }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+<button>Save to Profile</button>
+<button>Download as PDF</button>
+{% endblock %}

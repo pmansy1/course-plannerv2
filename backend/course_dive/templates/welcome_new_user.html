@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="welcome-container">
+    <h1>Welcome to Course Dive!</h1>
+    <p>This is your academic planning companion. Let's build your personalized roadmap to graduation.</p>
+    <div class="welcome-actions">
+        <a href="{% url 'create_user_profile' %}" class="button primary">Start Your Path Plan</a>
+        <p class="subtext">Already have a profile? Head to your <a href="{% url 'dashboard' %}">Dashboard</a>.</p>
+    </div>
+</div>
+{% endblock %}

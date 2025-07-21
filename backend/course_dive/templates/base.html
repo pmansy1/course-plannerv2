@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>{% block title %}Course Planner{% endblock %}</title>
+</head>
+{% if user.is_authenticated %}
+    <a href="{% url 'user_profile' %}">👤 Profile</a>
+    <a href="{% url 'home' %}">🏠 Home</a>
+    <a href="{% url 'recommend_courses' %}">📚 Recommendations</a>
+    <a href="{% url 'all_courses' %}">📖 Courses</a>
+    <form action="{% url 'course_search' %}" method="get" class="flex items-center">
+        <input type="text" name="q" placeholder="Search courses..." required class="input input-bordered" />
+        <button type="submit" class="btn ml-2">Search</button>
+    </form>
+    <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'register' %}">Register</a>
+{% endif %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

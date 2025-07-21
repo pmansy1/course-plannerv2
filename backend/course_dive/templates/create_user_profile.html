@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h2>Tell us about yourself, Create your profile</h2>
+    <p>Your profile helps tailor course recommendations and build your ideal academic path.</p>
+    <form method="post" action="{% url 'create_user_profile' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button primary">Save and Continue</button>
+    </form>
+</div>
+{% endblock %}

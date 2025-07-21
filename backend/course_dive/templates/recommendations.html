@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Recommended Courses{% endblock %}
+{% if user.is_authenticated %}
+    <a href="{% url 'recommend_courses' %}">See Recommendations</a>
+{% else %}
+    <a href="{% url 'login' %}?next={{ request.path }}">Login to see recommendations</a>
+{% endif %}

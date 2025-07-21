@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h2>Welcome to the Course Planner!</h2>
+<p>Plan your schedule, get smart recommendations, and graduate on time.</p>
+<a href="{% url 'recommend_courses' %}" class="button">Find Courses</a>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>All Courses</h2>
+
+<style>
+  .department-section {
+    margin-bottom: 3rem;
+  }
+  .department-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+  }
+  .course-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+  }
+  .course-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .course-meta {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  .prereq-note {
+    font-style: italic;
+    color: #888;
+  }
+</style>
+
+{% for department, department_courses in courses_by_department.items %}
+<div class="department-section">
+  <div class="department-title">{{ department }}</div>
+
+  {% for course in department_courses %}
+  <div class="course-card">
+    <div class="course-title">{{ course.title }} (CRN: {{ course.crn }})</div>
+    <div class="course-meta">
+      <strong>Credits:</strong> {{ course.credit_hours }} |
+      <strong>Level:</strong> {{ course.level }}
+    </div>
+    <p><strong>Description:</strong> {{ course.description|default:"No description available." }}</p>
+    <p><strong>Keywords:</strong> {{ course.keywords|default:"No keywords" }}</p>
+    <p>
+        <strong>Prerequisites:</strong>
+        {% if course.prerequisites.all %}
+            <ul>
+            {% for prereq in course.prerequisites.all %}
+                <li>
+                {% if prereq.prerequisite_course %}
+                    {{ prereq.prerequisite_course.title }}
+                {% elif prereq.note %}
+                    <span class="prereq-note">{{ prereq.note }}</span>
+                {% else %}
+                    <span class="prereq-note">Unspecified prerequisite</span>
+                {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            None
+        {% endif %}
+    </p>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
