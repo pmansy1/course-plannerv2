@@ -1,73 +1,96 @@
 import pandas as pd
-from course_recommender import CourseRecommender  # your recommender class
+from course_recommender import CourseRecommender
+import joblib
+import os
 
+def run_test(user_profile, label, recommender, df):
+    print(f"\n=== {label} ===")
+    recommender.fit()  # Ensure recommender is trained
+    recommendations = recommender.recommend(user_profile, top_n=10)
+    if not recommendations:
+        print("No recommendations found.\n")
+        return
+    for rec in recommendations:
+        course_code = rec['Course Code']
+        course_title = rec['Course Title']
+        score = rec['Compatibility Score']
+        matched_keywords = rec.get('keywords', [])
+        matched_row = df[df['Course Code'] == course_code]
+        if not matched_row.empty:
+            difficulty = matched_row['Difficulty'].values[0]
+            credits = matched_row['Credits'].values[0]
+        else:
+            difficulty = "Unknown"
+            credits = "Unknown"
+        print(f"  {course_code}: {course_title}  ({score}) | Keywords: {matched_keywords} | Difficulty: {difficulty}")
+
+# Load course data
+course_path = "/Users/joy/Downloads/course_planner/course-plannerv2/final_cleaned_courses_v1.csv"
+df = pd.read_csv(course_path)
+
+# Normalize course codes if needed (optional)
 def normalize_code(code):
     if not isinstance(code, str):
         return ""
     return code.strip().lower().replace('.', '').replace('-', '').replace(' ', '')
+df['Normalized Code'] = df['Course Code'].apply(normalize_code)
 
-# Load course dataset
-course_df = pd.read_csv('final_cleaned_courses_v1.csv')
-course_df['Normalized Code'] = course_df['Course Code'].apply(normalize_code)
+# Create recommender instance
+recommender = CourseRecommender(df)
+# No explicit fit() needed if your class does vectorizer in __init__
 
-# Sample student profiles with majors included
-student_profiles = [
-    {
-        "interests": ["machine learning", "data science", "neural networks"],
-        "completed_courses": ["CS101", "MATH200"],
-        "year": "junior",
-        "difficulty_preference": "advanced",
-        "major": "computer science"
+# Diverse student profiles
+students = {
+    "STEM Freshman": {
+        "interests": ["math", "programming", "algorithms", "physics"],
+        "major": "computer science",
+        "year": "Freshman",
+        "difficulty": "beginner",
+        "completed_courses": []
     },
-    {
-        "interests": ["writing", "communication", "media"],
-        "completed_courses": [],
-        "year": "freshman",
-        "difficulty_preference": "easy",
-        "major": "media studies"
+    "Humanities Sophomore": {
+        "interests": ["history", "philosophy", "writing", "politics"],
+        "major": "history",
+        "year": "Sophomore",
+        "difficulty": "intermediate",
+        "completed_courses": []
     },
-    {
-        "interests": ["health", "wellness", "psychology"],
-        "completed_courses": ["PSYC1000", "HLTH2000"],
-        "year": "senior",
-        "difficulty_preference": "medium",
-        "major": "health sciences"
+    "Business Junior": {
+        "interests": ["entrepreneurship", "finance", "marketing", "strategy"],
+        "major": "business",
+        "year": "Junior",
+        "difficulty": "intermediate",
+        "completed_courses": []
     },
-]
+    "Pre-Med Senior": {
+        "interests": ["biology", "chemistry", "anatomy", "health"],
+        "major": "biology",
+        "year": "Senior",
+        "difficulty": "advanced",
+        "completed_courses": []
+    },
+    "Art Major": {
+        "interests": ["painting", "design", "creativity", "sculpture"],
+        "major": "Art",
+        "year": "Sophomore",
+        "difficulty": "flexible",
+        "completed_courses": []
+    }
+}
 
-def normalize_course_list(courses):
-    return [normalize_code(c) for c in courses]
+# Run tests on these profiles
+for label, profile in students.items():
+    run_test(profile, label, recommender, df)
 
-def test_recommender_only():
-    recommender = CourseRecommender(course_df)
-    recommender.fit()
+# Optional: test a specific profile
+test_profile = {
+    "interests": ["data science", "machine learning", "statistics"],
+    "completed_courses": ["cs101", "math200"],
+    "year": "Junior",
+    "difficulty": "advanced",
+    "major": "computer science"
+}
+run_test(test_profile, "Test User Profile", recommender, df)
 
-    for idx, profile in enumerate(student_profiles, start=1):
-        print(f"\n{'='*10} Profile #{idx} {'='*10}")
-
-        completed_norm = normalize_course_list(profile['completed_courses'])
-        profile_data = {
-            "interests": " ".join(profile["interests"]),
-            "completed_courses": completed_norm,
-            "year": profile["year"],
-            "difficulty_preference": profile["difficulty_preference"],
-            "major": profile["major"]
-        }
-
-        recommendations = recommender.recommend(user_profile=profile_data, top_n=5)
-
-        # Filter recommendations to courses that actually exist in the dataset
-        filtered_recs = [r for r in recommendations if normalize_code(r.get('Course Code', '')) in set(course_df['Normalized Code'])]
-
-        if not filtered_recs:
-            print("⚠️ No suitable recommendations found.")
-            continue
-
-        print("🎓 Top 5 Course Recommendations:")
-        for rec in filtered_recs[:5]:
-            print(f"  {rec.get('Course Code', 'N/A').upper()} | {rec['Course Title']} — Score: {rec['Compatibility Score']}")
-            print(f"    Reason: {rec['Recommendation Reason']}")
-            print(f"    Matched Keywords: {rec['Matched Keywords']}")
-
-if __name__ == "__main__":
-    test_recommender_only()
+# Save the model if needed
+recommender.save_model("saved_models")
