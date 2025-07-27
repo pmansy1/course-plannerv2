@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from .recomended_model.path_planner.course_recommender import CourseRecommender
-from .recomended_model.path_planner.path_planner import PathPlanner
-from .recomended_model.user_profile import User_student
+from .recomended_model.path_planner.path_planner_model import PathPlanner
 from .models import Course, User, UserProfile, CourseRecommendation
 import pandas as pd
 import ast

@@ -1,149 +1,118 @@
 import pandas as pd
+from path_planner_model import PathPlanner, UserStudent
 from course_recommender import CourseRecommender
-from path_planner import PathPlanner
-
-def normalize_code(code):
-    if not isinstance(code, str):
-        return ""
-    return code.strip().lower().replace('.', '').replace('-', '').replace(' ', '')
 
 # Load course data
-course_df = pd.read_csv('final_cleaned_courses_v1.csv')
-course_df['Normalized Code'] = course_df['Course Code'].apply(normalize_code)
+pamphlet_df = pd.read_csv("/Users/joy/Downloads/preprocessed_courses_high_quality_keywords.csv")
+recommender_df = pd.read_csv("/Users/joy/Downloads/course_planner/course-plannerv2/final_cleaned_courses_v1.csv")
 
-# Build prerequisite edges for PathPlanner
-prereq_edges = []
-for _, row in course_df.iterrows():
-    course_code = normalize_code(row['Course Code'])
-    if pd.notna(row['Prerequisites']):
-        prereqs = [normalize_code(pr) for pr in row['Prerequisites'].split(',') if pr.strip()]
-        for pr in prereqs:
-            prereq_edges.append((pr, course_code))
+# Initialize models
+recommender = CourseRecommender(recommender_df)
+planner = PathPlanner(recommender_df)
 
-planner = PathPlanner()
-planner.add_prerequisites(prereq_edges)
+# --- Define student profiles ---
+students = [
+    UserStudent(
+        user_id=1,
+        name="Alice",
+        age=20,
+        major="Computer Science",
+        minor="Math",
+        year="Sophomore",
+        exp_grad_year=2027,
+        credits_completed=30,
+        completed_courses=["COMP 1010", "COMP 1020"],
+        interests=["AI", "machine learning", "software engineering"]
+    ),
+ UserStudent(
+    user_id=2,
+    name="Brian",
+    age=21,
+    major="Marketing",
+    minor="Business Analytics",
+    year="Junior",
+    exp_grad_year=2026,
+    credits_completed=60,
+    completed_courses=["BUS 2000", "MKTG 2000"],
+    interests=["branding", "market research", "advertising"]
+),
+UserStudent(
+    user_id=3,
+    name="Carmen",
+    age=19,
+    major="Psychology",
+    minor="Sociology",
+    year="Freshman",
+    exp_grad_year=2028,
+    credits_completed=15,
+    completed_courses=["PSYC 1100"],
+    interests=["cognitive science", "mental health", "neuroscience"]
+),
+UserStudent(
+    user_id=4,
+    name="David",
+    age=22,
+    major="Biology",
+    minor="Chemistry",
+    year="Senior",
+    exp_grad_year=2025,
+    credits_completed=90,
+    completed_courses=["BIOL 1200", "CHEM 1200", "BIOL 1300"],
+    interests=["genetics", "immunology", "research"]
+),
+UserStudent(
+    user_id=5,
+    name="Eva",
+    age=20,
+    major="Fine Arts",
+    minor="Art History",
+    year="Sophomore",
+    exp_grad_year=2027,
+    credits_completed=35,
+    completed_courses=["DSGN 1010", "ART 1100"],
+    interests=["creativity", "painting", "illustration"]
+),]
 
-student_profiles = [
-    {
-        "interests": ["machine learning", "data science", "neural networks"],
-        "completed_courses": ["CS101", "MATH200"],
-        "year": "junior",
-        "difficulty_preference": "advanced",
-        "major": "computer science",
-        "desired_credits": 12
-    },
-    {
-        "interests": ["writing", "communication", "media"],
-        "completed_courses": [],
-        "year": "freshman",
-        "difficulty_preference": "easy",
-        "major": "media studies",
-        "desired_credits": 9
-    },
-    {
-        "interests": ["health", "wellness", "psychology"],
-        "completed_courses": ["PSYC1000", "HLTH2000"],
-        "year": "senior",
-        "difficulty_preference": "medium",
-        "major": "health sciences",
-        "desired_credits": 6
-    },
-]
 
-def generate_study_plan(completed, recommended_courses, desired_credits):
-    plan = []
-    total_credits = 0
+# --- Test each student ---
+for student in students:
+    print(f"\n{'='*50}")
+    print(f"📚 Student: {student.name} | Major: {student.major}")
+    print(f"✅ Completed Courses: {student.completed_courses}")
+    print(f"🎨 Interests: {student.interests}")
 
-    def get_credits(credit_str):
+    try:
+        recommender.fit()
+        top_courses = recommender.recommend(
+            user_profile=student.get_user_profile(),
+            top_n=8
+        )
+    except Exception as e:
+        print(f"❌ Failed to get recommendations for {student.name}: {e}")
+        continue
+
+    if not top_courses:
+        print("⚠️ No recommended courses found.")
+        continue
+
+    for target_course in top_courses:
+        print(f"\n🎯 Planning path to top course: {target_course}")
         try:
-            s = str(credit_str).lower()
-            digits = ''.join(ch for ch in s if ch.isdigit())
-            return int(digits) if digits else 0
-        except:
-            return 0
+            plan = planner.plan_path(
+                completed_courses=student.completed_courses,
+                target_course_code=target_course['Course Code'],
+                interests=student.interests,
+                major=student.major,
+            )
 
-    for course in recommended_courses:
-        ccode = normalize_code(course.get('Course Code', ''))
-        if ccode not in plan:
-            credits = get_credits(course.get('Credits', '4'))
-            plan.append((course['Course Title'], ccode, credits))
-            total_credits += credits
-            if total_credits >= desired_credits:
-                break
-
-    # Filler courses if needed
-    if total_credits < desired_credits:
-        for _, row in course_df.iterrows():
-            ccode = normalize_code(row['Course Code'])
-            if ccode not in plan and ccode not in completed:
-                credits = get_credits(row['Credits'])
-                if credits == 0:
-                    credits = 4
-                plan.append((row['Course Title'], ccode, credits))
-                total_credits += credits
-                if total_credits >= desired_credits:
-                    break
-
-    return plan
-
-def test_recommender_and_planner():
-    for idx, profile in enumerate(student_profiles, start=1):
-        print(f"\n{'='*10} Profile #{idx} {'='*10}")
-
-        completed_norm = [normalize_code(c) for c in profile['completed_courses']]
-        eligible_courses = planner.get_available_courses(completed_norm)
-        print(f"Completed courses (normalized): {completed_norm}")
-        print(f"Eligible courses found: {len(eligible_courses)}")
-
-        if not eligible_courses:
-            print("⚠️ No eligible courses found for this profile.")
+            for quarter in ["Fall", "Winter", "Spring"]:
+                print(f"\n🗓️ {quarter} Plan:")
+                if quarter in plan:
+                    for course_code, credits in plan[quarter]:
+                        print(f"  - {course_code} )")
+                else:
+                    print("  - No courses planned.")
+            break  # Stop after first successful path
+        except Exception as e:
+            print(f"⚠️ Could not plan path to {target_course}: Error {e}")
             continue
-
-        eligible_df = course_df[course_df['Normalized Code'].isin(eligible_courses)].copy()
-
-        user_profile = {
-            "interests": " ".join(profile['interests']),
-            "completed_courses": completed_norm,
-            "year": profile['year'],
-            "difficulty_preference": profile['difficulty_preference'],
-            "major": profile['major']
-        }
-
-        recommender_sub = CourseRecommender(eligible_df)
-        recommender_sub.fit()
-        recommendations = recommender_sub.recommend(user_profile=user_profile, top_n=10)
-
-        # Filter recommendations to ensure valid courses only
-        recommendations = [r for r in recommendations if normalize_code(r.get('Course Code', '')) in eligible_courses]
-
-        if not recommendations:
-            print("⚠️ No suitable recommendations found.")
-            continue
-
-        top_recommendations = recommendations[:5]
-        print("\n🎓 Top Course Recommendations:")
-        for r in top_recommendations:
-            print(f"  {r.get('Course Code', 'N/A').upper()} | {r['Course Title']} — Score: {r['Compatibility Score']}")
-            print(f"    Reason: {r['Recommendation Reason']}")
-            print(f"    Matched Keywords: {r['Matched Keywords']}")
-
-        study_plan = generate_study_plan(completed_norm, top_recommendations, profile.get('desired_credits', 12))
-
-        print("\n🗓️ Suggested Study Plan:")
-        total_credits = 0
-        for title, code, credits in study_plan:
-            total_credits += credits
-            print(f"  - {code.upper()}: {title} ({credits} credits)")
-        print(f"Total credits planned: {total_credits}")
-
-        # Path to top recommended course
-        top_course_code = normalize_code(top_recommendations[0].get('Course Code', ''))
-        path = planner.find_path(completed_norm, top_course_code)
-        print("\n🧭 Path to top recommended course:")
-        if isinstance(path, dict) and "error" in path:
-            print("⚠️", path["error"])
-        else:
-            print(" → ".join(path[0]))
-
-if __name__ == "__main__":
-    test_recommender_and_planner()
