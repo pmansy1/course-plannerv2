@@ -24,55 +24,55 @@ students = [
         completed_courses=["COMP 1010", "COMP 1020"],
         interests=["AI", "machine learning", "software engineering"]
     ),
-    UserStudent(
-        user_id=2,
-        name="Brian",
-        age=21,
-        major="Marketing",
-        minor="Business Analytics",
-        year="Junior",
-        exp_grad_year=2026,
-        credits_completed=60,
-        completed_courses=["BUS 2000", "MKTG 2000"],
-        interests=["branding", "market research", "advertising"]
-    ),
-    UserStudent(
-        user_id=3,
-        name="Carmen",
-        age=19,
-        major="Psychology",
-        minor="Sociology",
-        year="Freshman",
-        exp_grad_year=2028,
-        credits_completed=15,
-        completed_courses=["PSYC 1100"],
-        interests=["cognitive science", "mental health", "neuroscience"]
-    ),
-    UserStudent(
-        user_id=4,
-        name="David",
-        age=22,
-        major="Biology",
-        minor="Chemistry",
-        year="Senior",
-        exp_grad_year=2025,
-        credits_completed=90,
-        completed_courses=["BIOL 1200", "CHEM 1200", "BIOL 1300"],
-        interests=["genetics", "immunology", "research"]
-    ),
-    UserStudent(
-        user_id=5,
-        name="Eva",
-        age=20,
-        major="Fine Arts",
-        minor="Art History",
-        year="Sophomore",
-        exp_grad_year=2027,
-        credits_completed=35,
-        completed_courses=["DSGN 1010", "ART 1100"],
-        interests=["creativity", "painting", "illustration"]
-    ),
-]
+ UserStudent(
+    user_id=2,
+    name="Brian",
+    age=21,
+    major="Marketing",
+    minor="Business Analytics",
+    year="Junior",
+    exp_grad_year=2026,
+    credits_completed=60,
+    completed_courses=["BUS 2000", "MKTG 2000"],
+    interests=["branding", "market research", "advertising"]
+),
+UserStudent(
+    user_id=3,
+    name="Carmen",
+    age=19,
+    major="Psychology",
+    minor="Sociology",
+    year="Freshman",
+    exp_grad_year=2028,
+    credits_completed=15,
+    completed_courses=["PSYC 1100"],
+    interests=["cognitive science", "mental health", "neuroscience"]
+),
+UserStudent(
+    user_id=4,
+    name="David",
+    age=22,
+    major="Biology",
+    minor="Chemistry",
+    year="Senior",
+    exp_grad_year=2025,
+    credits_completed=90,
+    completed_courses=["BIOL 1200", "CHEM 1200", "BIOL 1300"],
+    interests=["genetics", "immunology", "research"]
+),
+UserStudent(
+    user_id=5,
+    name="Eva",
+    age=20,
+    major="Fine Arts",
+    minor="Art History",
+    year="Sophomore",
+    exp_grad_year=2027,
+    credits_completed=35,
+    completed_courses=["DSGN 1010", "ART 1100"],
+    interests=["creativity", "painting", "illustration"]
+),]
+
 
 # --- Test each student ---
 for student in students:
@@ -100,7 +100,7 @@ for student in students:
         try:
             plan = planner.plan_path(
                 completed_courses=student.completed_courses,
-                target_course_code=target_course,
+                target_course_code=target_course['Course Code'],
                 interests=student.interests,
                 major=student.major,
             )
@@ -109,10 +109,10 @@ for student in students:
                 print(f"\n🗓️ {quarter} Plan:")
                 if quarter in plan:
                     for course_code, credits in plan[quarter]:
-                        print(f"  - {course_code} ({credits} credits)")
+                        print(f"  - {course_code} )")
                 else:
                     print("  - No courses planned.")
             break  # Stop after first successful path
         except Exception as e:
-            print(f"⚠️ Could not plan path to {target_course}: {e}")
+            print(f"⚠️ Could not plan path to {target_course}: Error {e}")
             continue

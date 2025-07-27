@@ -5,7 +5,7 @@ import re
 from collections import Counter
 
 # --- Load Dataset ---
-df = pd.read_csv('/Users/joy/Downloads/final_cleaned_courses.csv', dtype={'Course Code': str})
+df = pd.read_csv('/Users/joy/Downloads/preprocessed_courses_high_quality_keywords.csv', dtype={'Course Code': str})
 
 # --- Step 1: Clean Description (Spacing Fixes Only) ---
 def fix_description_spacing(text):
@@ -73,11 +73,12 @@ def clean_course_code(code):
         return ''
     return ''.join(re.findall(r'\d+', code))
 
-df['Course Code'] = df['Course Code'].apply(clean_course_code)
+#df['Course Code'] = df['Course Code'].apply(clean_course_code)
 
 # --- Step 6: Deduplicate Rows ---
 df.drop_duplicates(inplace=True)
+df.drop(columns=['prerequisites'], inplace=True, errors='ignore')
 
 # --- Step 7: Save Final Output ---
-df.to_csv('final_cleaned_output.csv', index=False)
-print("Cleaning complete. Saved to final_cleaned_output.csv")
+df.to_csv('/Users/joy/Downloads/preprocessed_courses_high_quality_keywords.csv', index=False)
+print("Cleaning complete. Saved to /Users/joy/Downloads/preprocessed_courses_high_quality_keywords.csvv")

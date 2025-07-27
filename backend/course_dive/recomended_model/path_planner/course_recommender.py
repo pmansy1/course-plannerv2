@@ -57,6 +57,8 @@ class CourseRecommender:
             department = "UNKNOWN"
             credits = row.get("Credits", 4)  # fallback
 
+            if major == "Fine Arts":
+                department = "Arts"
             if not pamphlet_match.empty:
                 department = pamphlet_match.iloc[0]["Course"]
                 credits = (
@@ -82,6 +84,7 @@ class CourseRecommender:
                 "Department": department,
                 "Difficulty": row.get("Difficulty", ""),
                 "Credits": credits,
+                "Prerequisites": row.get("Prerequisites", ""),
             })
 
         sorted_recommendations = sorted(recommendations, key=lambda x: x["Compatibility Score"], reverse=True)
